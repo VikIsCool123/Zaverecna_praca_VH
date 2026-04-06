@@ -11,16 +11,16 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item"><!--Menu item that acts like a button. It moves/redirects you to the Home part of the webpage.-->
-                            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                            <a class="nav-link active" aria-current="page" href="index.php">Home</a>
                         </li>
                             <li class="nav-item"><!--Menu item that acts like a button. It moves/redirects you to the About us part of the webpage.-->
-                            <a class="nav-link" href="about_us.html">About us</a>
+                            <a class="nav-link" href="about_us.php">About us</a>
                         </li>
                         <li class="nav-item"><!--Menu item that acts like a button. It moves/redirects you to the Veriety (i tiped it wrong in the style) part of the webpage.-->
-                            <a class="nav-link" href="variety.html">Veriety</a>
+                            <a class="nav-link" href="variety.php">Veriety</a>
                         </li>
                         <li class="nav-item"><!--Menu item that acts like a button. It moves/redirects you to the Reservation part of the webpage.-->
-                            <a class="nav-link" href="reservation.html">Reservation</a>
+                            <a class="nav-link" href="reservation.php">Reservation</a>
                         </li>
                     </ul>
                 </div>
