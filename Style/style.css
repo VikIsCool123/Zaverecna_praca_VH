@@ -1,0 +1,252 @@
+.logo{
+    background-color: rgb(255, 255, 255);
+    padding: 0px;
+    text-align: left;
+    background-color: aliceblue;
+}
+.nav-item{
+    padding: 20px;
+    font-size: 30px;
+    font-family:initial;
+    border: 1px solid transparent;
+    border-bottom: 5px solid transparent;
+    transition: 0.5s ease-in-out;
+    background-color: transparent;
+}
+.nav-item:hover{
+    border: 1px solid rgb(192, 98, 98);
+    background-color: rgb(234, 252, 252);
+    border-bottom: 5px solid rgb(192, 98, 98);
+}
+.navbar-nav{
+    gap: 40px;
+}
+.navbar{
+    background-color: #f0f8ff;
+    border-bottom: 1px solid rgb(192, 98, 98);
+    padding: 0px;
+}
+.logo{
+    max-width: 150px;
+    margin-right: 70px;
+    margin-left: 10px;
+    border-radius: 10px;
+}
+.container-logo{
+    margin-left: 40px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-right: 1px solid rgb(192, 98, 98);;
+}
+.container-section{
+    display: flex;
+    justify-content: center;
+    height: calc(100vh - 127px - 30px);
+}
+.container-section2{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+.container-index-texts{
+    background-color: rgb(251, 237, 220);
+    margin-right: 600px;
+    padding: 10px;
+    border: 2px solid rgb(61, 0, 0);
+    border-radius: 20px;
+}
+.container1{
+    width: 100%;
+    padding: 20px 60px;
+}
+.container2{
+    padding: 20px 60px;
+}
+.p1{
+    max-width: 1000px;
+    margin-top: 30px;
+    margin-bottom: 25px;
+}
+.hero_buttons{
+    display: flex;
+    gap: 25px;
+}
+.hero-button1{
+    background-color: bisque;
+}
+.hero-button2{
+    background-color: bisque;
+}
+button{
+    padding: 10px 20px;
+    border: 1px solid rgb(192, 98, 98);
+    border-radius: 5px;
+    background-color: transparent;
+    margin: 1px;
+}
+button:hover{
+    background-color: rgb(234, 252, 252);
+    border: 2px solid rgb(192, 98, 98);
+    margin: 0px;
+}
+.about-us-button {
+    background-color: bisque;
+    border: 2px solid rgb(192, 98, 98);
+    color: black;
+    padding: 20px 34px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.about-us-button:hover {
+    background-color: rgb(234, 252, 252);
+}
+.container4{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+.form-check-input{
+    border: 1px solid rgb(0, 0, 0);
+}
+.form-button{
+    margin-top: 20px;
+}
+.container-selection{
+    margin-bottom: 20px;
+}
+.conatiner-form-name{
+    margin-top: 20px;
+}
+.container-cards{
+    margin: 50px;
+    display: flex;
+    gap: 50px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.card{
+    border: 1px solid rgb(192, 98, 98);
+    width: 800px;
+}
+.img-fluid{
+    min-height: 100%;
+    object-fit: cover;
+}
+.container-thanks{
+    display: flex;
+    justify-self: center;
+    margin-top: 40px;
+}
+.img-thanks-container{
+    display: flex;
+    justify-self: center;
+    padding: 5px;
+}
+.body-index{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    overflow: hidden;
+}
+.body-about-us{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: white;
+}
+.body-reservation{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.body-variety{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.body-ty{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.container-about-texts{
+    background-color: rgb(251, 237, 220);
+    margin-right: 600px;
+    padding: 10px;
+    border: 2px solid rgb(61, 0, 0);
+    border-radius: 20px;
+    margin-right: 0px;
+}
+.card-body{
+    background-color: rgb(249, 240, 232);
+}
+.container4{
+    color: white;
+    font-weight: bolder;
+}
+.form-text{
+    color: white;
+    font-weight: bolder;
+}
+.img-ty{
+    margin-bottom: 30px;
+}
+.container-alert{
+    display: none;
+}
+.container-alert.show{
+    display: block; 
+}
+.table{
+    width: 1000px;
+    max-width: 100%;
+}
+.conainer-table{
+    display: flex;
+    justify-content: center;
+    background-color: transparent;
+}
+.container2 ul{
+    list-style-type: none;
+    max-width: 500px;
+    padding-left: 0px;
+}
+.container-ul{
+    display: flex;
+    justify-content: center;
+}
+.accordion{
+    max-width: 1000px;
+    background-color: rgb(247, 224, 196);
+}
+.accordion-item{
+    background-color: transparent;
+}
+.accordion-button{
+    background-color: transparent;
+}
+.table td{
+    background-color: rgb(251, 237, 220);
+    border-left: 1px solid black;
+    text-align: center;
+}
+.table th{
+    background-color: rgb(251, 237, 220);
+    border-left: 1px solid black;
+    text-align: center;
+}
+.container-footer{
+    background-color: antiquewhite;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+}
+.container-section-thanks{
+    display: flex;
+    justify-content: center;
+}
