@@ -1,0 +1,12 @@
+<?php
+    $titles = array("Yoga", "Sauna", "Massage", "Spa", "Relaxation", "Meditation");
+    $text = array(
+        "A transformative practice that harmonizes body, mind, and breath through a series of intentional movements and postures. Yoga improves flexibility, strength, and posture while calming the nervous system and reducing stress. Whether gentle or dynamic, each session encourages mindfulness, balance, and a deeper connection with yourself, leaving you feeling centered, energized, and restored.", 
+        "A deeply cleansing heat experience designed to relax the body and awaken the senses. The soothing warmth helps ease muscle tension, improve circulation, and support natural detoxification. As your body unwinds, the mind follows—creating a tranquil space where stress melts away and a sense of calm and renewal takes over.",
+        "A personalized therapeutic experience that nurtures both body and mind. Through a combination of techniques, massage helps release deep-seated tension, improve blood flow, and promote overall relaxation. Whether you seek relief from physical discomfort or simply a moment of indulgence, each treatment restores balance, reduces stress, and enhances your sense of well-being.", 
+        "A sanctuary dedicated to holistic wellness, where every detail is designed to soothe, restore, and rejuvenate. From luxurious treatments to calming environments, a spa experience nurtures the body, refreshes the mind, and uplifts the spirit. It’s a place to disconnect from daily stress and reconnect with a sense of harmony, beauty, and inner peace.", 
+        "An essential state of rest that allows the body and mind to recover from the demands of daily life. Through calming environments and gentle practices, relaxation reduces stress, lowers tension, and restores energy. It creates space for stillness, helping you feel lighter, more balanced, and fully refreshed.", 
+        "A mindful journey inward that cultivates clarity, awareness, and emotional balance. By focusing attention and quieting the mind, meditation reduces stress, enhances concentration, and promotes a deep sense of inner peace. With regular practice, it becomes a powerful tool for resilience, self-discovery, and lasting well-being."
+    );
+    $images = array("yoga.jpg", "sauna.jpg", "massage.jpg", "spa.jpg", "relax.jpg", "meditation.jpg");
+?>

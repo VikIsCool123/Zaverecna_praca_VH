@@ -11,90 +11,22 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
         <?php include "parts/header.php"?>
         <div class="container-cards"><!--Container for the cards.-->
+            <?php include "parts/services.php"?>
+            <?php for($i=0;$i < count($titles);$i++){?>
             <div class="card mb-3">
                 <div class="row g-0">
                     <div class="col-md-8">
                         <div class="card-body"><!--Card about yoga.-->
-                            <h5 class="card-title">Yoga</h5>
-                            <p class="card-text">Morbi iaculis eu libero posuere tincidunt. Donec sit amet eleifend dui. Suspendisse velit nulla, aliquet nec lectus ac, ultricies commodo nulla. Sed ultrices lectus ac velit tempor, id vehicula ligula lacinia. Ut vitae pulvinar turpis, in ullamcorper nulla. Aenean ut augue lectus. Nulla vestibulum bibendum consequat. Proin sapien elit, consectetur ut tristique at, euismod vel diam. Integer vitae nisi quis velit mollis auctor ac id tellus. Praesent porttitor, lacus vitae consectetur sagittis, erat ex elementum ex, eu condimentum massa risus sit amet ante. Integer hendrerit lacus ac arcu consequat, nec sodales nunc venenatis. Sed vestibulum felis eu sapien imperdiet iaculis. In lobortis pharetra justo. Donec fringilla sodales condimentum. Praesent felis lorem, ornare ut ipsum eget, suscipit varius diam.</p>
-                            <p class="card-text"><small class="text-body-secondary">put in date and time</small></p>
+                            <h5 class="card-title"><?php echo $titles[$i];?></h5>
+                            <p class="card-text"><?php echo $text[$i];?></p>
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <img src="images/yoga.jpg" class="img-fluid rounded-start" alt="a pickture about a woman doing a yoga pose">
+                        <img src="images/<?php echo $images[$i];?>" class="img-fluid rounded-start">
                     </div>
                 </div>
             </div>
-            <div class="card mb-3">
-                <div class="row g-0">
-                    <div class="col-md-8">
-                        <div class="card-body"><!--Card about sauna.-->
-                            <h5 class="card-title">Sauna</h5>
-                            <p class="card-text">Morbi iaculis eu libero posuere tincidunt. Donec sit amet eleifend dui. Suspendisse velit nulla, aliquet nec lectus ac, ultricies commodo nulla. Sed ultrices lectus ac velit tempor, id vehicula ligula lacinia. Ut vitae pulvinar turpis, in ullamcorper nulla. Aenean ut augue lectus. Nulla vestibulum bibendum consequat. Proin sapien elit, consectetur ut tristique at, euismod vel diam. Integer vitae nisi quis velit mollis auctor ac id tellus. Praesent porttitor, lacus vitae consectetur sagittis, erat ex elementum ex, eu condimentum massa risus sit amet ante. Integer hendrerit lacus ac arcu consequat, nec sodales nunc venenatis. Sed vestibulum felis eu sapien imperdiet iaculis. In lobortis pharetra justo. Donec fringilla sodales condimentum. Praesent felis lorem, ornare ut ipsum eget, suscipit varius diam.</p>
-                            <p class="card-text"><small class="text-body-secondary">put in date and time</small></p>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <img src="images/sauna.jpg" class="img-fluid rounded-start" alt="a pickture of a couple hugging and smileing in a sauna">
-                    </div>
-                </div>
-            </div>
-            <div class="card mb-3">
-                <div class="row g-0">
-                    <div class="col-md-8">
-                        <div class="card-body"><!--Card about massage.-->
-                            <h5 class="card-title">Massage</h5>
-                            <p class="card-text">Morbi iaculis eu libero posuere tincidunt. Donec sit amet eleifend dui. Suspendisse velit nulla, aliquet nec lectus ac, ultricies commodo nulla. Sed ultrices lectus ac velit tempor, id vehicula ligula lacinia. Ut vitae pulvinar turpis, in ullamcorper nulla. Aenean ut augue lectus. Nulla vestibulum bibendum consequat. Proin sapien elit, consectetur ut tristique at, euismod vel diam. Integer vitae nisi quis velit mollis auctor ac id tellus. Praesent porttitor, lacus vitae consectetur sagittis, erat ex elementum ex, eu condimentum massa risus sit amet ante. Integer hendrerit lacus ac arcu consequat, nec sodales nunc venenatis. Sed vestibulum felis eu sapien imperdiet iaculis. In lobortis pharetra justo. Donec fringilla sodales condimentum. Praesent felis lorem, ornare ut ipsum eget, suscipit varius diam.</p>
-                            <p class="card-text"><small class="text-body-secondary">put in date and time</small></p>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <img src="images/massage.jpg" class="img-fluid rounded-start" alt="a pickture about a person having a massage">
-                    </div>
-                </div>
-            </div>
-            <div class="card mb-3">
-                <div class="row g-0">
-                    <div class="col-md-8">
-                        <div class="card-body"><!--Card about spa.-->
-                            <h5 class="card-title">Spa</h5>
-                            <p class="card-text">Morbi iaculis eu libero posuere tincidunt. Donec sit amet eleifend dui. Suspendisse velit nulla, aliquet nec lectus ac, ultricies commodo nulla. Sed ultrices lectus ac velit tempor, id vehicula ligula lacinia. Ut vitae pulvinar turpis, in ullamcorper nulla. Aenean ut augue lectus. Nulla vestibulum bibendum consequat. Proin sapien elit, consectetur ut tristique at, euismod vel diam. Integer vitae nisi quis velit mollis auctor ac id tellus. Praesent porttitor, lacus vitae consectetur sagittis, erat ex elementum ex, eu condimentum massa risus sit amet ante. Integer hendrerit lacus ac arcu consequat, nec sodales nunc venenatis. Sed vestibulum felis eu sapien imperdiet iaculis. In lobortis pharetra justo. Donec fringilla sodales condimentum. Praesent felis lorem, ornare ut ipsum eget, suscipit varius diam.</p>
-                            <p class="card-text"><small class="text-body-secondary">put in date and time</small></p>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <img src="images/spa.jpg" class="img-fluid rounded-start" alt="a pickture of a person relaxing in a spa">
-                    </div>
-                </div>
-            </div>
-            <div class="card mb-3">
-                <div class="row g-0">
-                    <div class="col-md-8">
-                        <div class="card-body"><!--Card about relaxation.-->
-                            <h5 class="card-title">Relaxation</h5>
-                            <p class="card-text">Morbi iaculis eu libero posuere tincidunt. Donec sit amet eleifend dui. Suspendisse velit nulla, aliquet nec lectus ac, ultricies commodo nulla. Sed ultrices lectus ac velit tempor, id vehicula ligula lacinia. Ut vitae pulvinar turpis, in ullamcorper nulla. Aenean ut augue lectus. Nulla vestibulum bibendum consequat. Proin sapien elit, consectetur ut tristique at, euismod vel diam. Integer vitae nisi quis velit mollis auctor ac id tellus. Praesent porttitor, lacus vitae consectetur sagittis, erat ex elementum ex, eu condimentum massa risus sit amet ante. Integer hendrerit lacus ac arcu consequat, nec sodales nunc venenatis. Sed vestibulum felis eu sapien imperdiet iaculis. In lobortis pharetra justo. Donec fringilla sodales condimentum. Praesent felis lorem, ornare ut ipsum eget, suscipit varius diam.</p>
-                            <p class="card-text"><small class="text-body-secondary">put in date and time</small></p>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <img src="images/relax.jpg" class="img-fluid rounded-start" alt="a pickture of a person relaxing">
-                    </div>
-                </div>
-            </div>
-            <div class="card mb-3">
-                <div class="row g-0">
-                    <div class="col-md-8">
-                        <div class="card-body"><!--Card about meditation.-->
-                            <h5 class="card-title">Meditation</h5>
-                            <p class="card-text">Morbi iaculis eu libero posuere tincidunt. Donec sit amet eleifend dui. Suspendisse velit nulla, aliquet nec lectus ac, ultricies commodo nulla. Sed ultrices lectus ac velit tempor, id vehicula ligula lacinia. Ut vitae pulvinar turpis, in ullamcorper nulla. Aenean ut augue lectus. Nulla vestibulum bibendum consequat. Proin sapien elit, consectetur ut tristique at, euismod vel diam. Integer vitae nisi quis velit mollis auctor ac id tellus. Praesent porttitor, lacus vitae consectetur sagittis, erat ex elementum ex, eu condimentum massa risus sit amet ante. Integer hendrerit lacus ac arcu consequat, nec sodales nunc venenatis. Sed vestibulum felis eu sapien imperdiet iaculis. In lobortis pharetra justo. Donec fringilla sodales condimentum. Praesent felis lorem, ornare ut ipsum eget, suscipit varius diam.</p>
-                            <p class="card-text"><small class="text-body-secondary">put in date and time</small></p>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <img src="images/meditation.jpg" class="img-fluid rounded-start" alt="pickture of a person meditating">
-                    </div>
-                </div>
-            </div>
+            <?php }?>
         </div>
         <div class="conainer-table"><!--Container for table.-->
             <table class="table"><!--The table.-->
