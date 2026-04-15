@@ -1,3 +1,7 @@
+<?php
+    $connect = mysqli_connect("localhost","root","","relaxation_center");
+    mysqli_query($connect,"INSERT INTO reservations VALUES('Judita Horvatova', 40, 'mamaemail@gmail.com', '0936 874 274', 'I like my son', 2, 2)");
+?>
 <!doctype html>
 <html lang="en">
     <head><!--The head of the webpage where all the links are stored.-->
