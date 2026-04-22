@@ -250,3 +250,6 @@ button:hover{
     display: flex;
     justify-content: center;
 }
+.reservation-container{
+    margin: 10px;
+}
