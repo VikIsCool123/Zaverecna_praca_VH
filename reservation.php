@@ -65,6 +65,6 @@
             </form>
         </div>
         <?php include "parts/footer.php"?>
-        <script src="js/app.js"></script>
+        <script src="javascript/reservation.js"></script>
     </body>
 </html>
