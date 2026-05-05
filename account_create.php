@@ -11,7 +11,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
         <?php include "parts/header.php"?>
         <div class="container4"><!--Container for the form.-->
-            <form id="form-res" action="reserve.php" method="POST"><!--The form itself.-->
+            <form id="form-res" action="create.php" method="POST"><!--The form itself.-->
                 <div class="conatiner-form-name">
                     <div class="mb-3"><!--Input for the Name.-->
                         <label for="exampleInputName1" class="form-label">Name</label>
@@ -31,19 +31,9 @@
                     <label for="exampleInputTelephoneNumber1" class="form-label">Telephone number (optional)</label>
                     <input type="text" class="form-control" id="exampleInputTelephoneNumber1" name="InputTelephoneNumber">
                 </div>
-                    <div class="mb-3"><!--Input for the text.-->
-                        <textarea class="form-control" id="exampleFormControlTextarea1" name="InputNote" rows="3">Enter your text here: </textarea>
-                    </div>
-                <div class="container-selection"><!--Form selection.-->
-                    <label>Choose from theese programs</label>
-                    <select class="form-select form-select-sm" aria-label="Small select example" name="SelectProgram">
-                        <option value="1">Yoga</option>
-                        <option value="2">Spa</option>
-                        <option value="3">Massage</option>
-                        <option value="4">Sauna</option>
-                        <option value="5">Natural stone relaxation</option>
-                        <option value="6">Meditation</option>
-                    </select>
+                <div class="mb-3"><!--Input password.-->
+                    <label for="exampleInputPassword1" class="form-label">Password</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" name="InputPassword">
                 </div>
                 <div class="form-check"><!--Checkbox.-->
                     <input class="form-check-input" type="checkbox" value="" id="checkDefault">
@@ -55,7 +45,7 @@
                         </div>
                     </div>
                     <div class="form-button"><!--Submit button.-->
-                        <button class="btn btn-primary" id="res-button" name="res-button" type="submit">Submit</button>
+                        <button class="btn btn-primary" id="res-button" name="res-button" type="submit">Create account</button>
                     </div>
                 </div>
             </form>
