@@ -1,8 +1,6 @@
 <?php 
 $connect = mysqli_connect("localhost","root","","relaxation_center");
 
-echo "Hello world!";
-
 if (!$connect) {
     die("Connection failed: " . mysqli_connect_error());
 }
@@ -10,6 +8,7 @@ if (!$connect) {
 if (isset($_POST["res-button"])) {
     $email = $_POST["InputEmail"];
     $password = $_POST["InputPassword"];
+    $password = md5($password);
 
     $stmt = mysqli_prepare($connect, "SELECT password FROM users  WHERE email=?");
     mysqli_stmt_bind_param($stmt, "s", $email);
