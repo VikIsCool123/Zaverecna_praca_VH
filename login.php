@@ -18,6 +18,7 @@ if (isset($_POST["res-button"])) {
         $user = $result->fetch_assoc();
         if ($password == $user["password"]){
             echo "Hooary! :)";
+            header("Location: index.php");
         } else {
             echo "Wrong password!";
         }
