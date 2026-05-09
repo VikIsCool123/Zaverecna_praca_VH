@@ -10,7 +10,7 @@
     <body class="body-reservation" background="images/book.png"><!--The body of the webpage that has an image as the bacground.-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
         <?php include "parts/header.php"?>
-        <div class="container4"><!--Container for the form.-->
+        <div class="container5"><!--Container for the form.-->
             <form id="form-res" action="create.php" method="POST"><!--The form itself.-->
                 <div class="conatiner-form-name">
                     <div class="mb-3"><!--Input for the Name.-->

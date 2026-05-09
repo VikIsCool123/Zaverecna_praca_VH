@@ -22,6 +22,12 @@
                         <li class="nav-item"><!--Menu item that acts like a button. It moves/redirects you to the Reservation part of the webpage.-->
                             <a class="nav-link" href="reservation.php">Reservation</a>
                         </li>
+                        <li class="nav-item"><!--Menu item that acts like a button. It moves/redirects you to the Reservation part of the webpage.-->
+                            <a class="nav-link" href="account_login.php">Log in</a>
+                        </li>
+                        <li class="nav-item"><!--Menu item that acts like a button. It moves/redirects you to the Reservation part of the webpage.-->
+                            <a class="nav-link" href="account_create.php">Create Account</a>
+                        </li>
                     </ul>
                 </div>
             </div>
