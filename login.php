@@ -1,4 +1,5 @@
 <?php 
+session_start();
 $connect = mysqli_connect("localhost","root","","relaxation_center");
 
 if (!$connect) {
@@ -18,6 +19,7 @@ if (isset($_POST["res-button"])) {
         $user = $result->fetch_assoc();
         if ($password == $user["password"]){
             echo "Hooary! :)";
+            $_SESSION["email"] = $email;
             header("Location: index.php");
         } else {
             echo "Wrong password!";
