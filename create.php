@@ -26,6 +26,7 @@ if (isset($_POST["res-button"])) {
             mysqli_stmt_bind_param($stmt, "sisss", $name, $age, $phone, $email, $password);
             if (mysqli_stmt_execute($stmt)) {
                 echo "Account created.";
+                header("Location: account_login.php");
             } else {
                 echo "Error: " . mysqli_error($connect);
             }
