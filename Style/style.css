@@ -5,13 +5,24 @@
     background-color: aliceblue;
 }
 .nav-item{
-    padding: 20px;
-    font-size: 30px;
+    padding: 10px 20px;
+    font-size: 20px;
     font-family:initial;
     border: 1px solid transparent;
     border-bottom: 5px solid transparent;
     transition: 0.5s ease-in-out;
     background-color: transparent;
+}
+.nav-user{
+    padding: 10px 20px;
+    font-size: 20px;
+    font-family:initial;
+    border: 1px solid transparent;
+    border-bottom: 5px solid transparent;
+    transition: 0.5s ease-in-out;
+    background-color: transparent;
+    margin-bottom: 0;
+    margin-top: 0px;
 }
 .nav-item:hover{
     border: 1px solid rgb(192, 98, 98);
@@ -27,7 +38,7 @@
     padding: 0px;
 }
 .logo{
-    max-width: 150px;
+    max-height: 70px;
     margin-right: 70px;
     margin-left: 10px;
     border-radius: 10px;
@@ -41,7 +52,7 @@
 .container-section{
     display: flex;
     justify-content: center;
-    height: calc(100vh - 127px - 30px);
+    height: calc(100vh - 90px - 30px);
 }
 .container-section2{
     display: flex;
@@ -109,6 +120,16 @@ button:hover{
     display: flex;
     justify-content: center;
     text-align: center;
+    height: calc(100vh - 90px - 30px);
+    color: white;
+    font-weight: bolder;
+}
+.container5{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    font-weight: bolder;
 }
 .form-check-input{
     border: 1px solid rgb(0, 0, 0);
@@ -185,10 +206,6 @@ button:hover{
 }
 .card-body{
     background-color: rgb(249, 240, 232);
-}
-.container4{
-    color: white;
-    font-weight: bolder;
 }
 .form-text{
     color: white;
