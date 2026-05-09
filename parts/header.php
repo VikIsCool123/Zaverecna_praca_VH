@@ -34,7 +34,7 @@
                                 <a class="nav-link" href="reservation.php">Reserve</a>
                             </li>
                             <li class="nav-item"><!--Menu item that acts like a button. It moves/redirects you to the Reservation part of the webpage.-->
-                                <p class="nav-user"><?php echo $_SESSION["email"] ?></p>
+                                <a class="nav-link" href="profile.php"><?php echo $_SESSION["email"] ?></a>
                             </li>
                         <?php endif; ?>
                     </ul>
