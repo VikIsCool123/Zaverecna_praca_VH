@@ -6,7 +6,6 @@
 - Finish reservation logic / sql
 - Add admin page to see users
 - Add reservations on the right of the profile page
-- Add log-out function
 
 ## Extra things
 
