@@ -24,7 +24,7 @@
                     <p>Phone number: <?php echo $user["telephone"] ?></p>
                     <p>Password: ******</p>
                     <div class="hero_buttons">
-                        <a href="variety.html"><!--Button that moves you to the Veriety tab.-->
+                        <a href="logout.php"><!--Button that moves you to the Veriety tab.-->
                             <button class="hero-button1">Log out</button>
                         </a>
                     </div>
