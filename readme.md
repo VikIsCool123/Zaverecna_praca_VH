@@ -4,8 +4,10 @@
 
 - Config file and sql file
 - Finish reservation logic / sql
+- add error message for reservations
 - Add admin page to see users
 - Add reservations on the right of the profile page
+- Zabranit pripejenie na account cez link
 
 ## Extra things
 
