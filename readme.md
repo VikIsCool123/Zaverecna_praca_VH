@@ -8,6 +8,7 @@
 - Add admin page to see users
 - Add reservations on the right of the profile page
 - Zabranit pripejenie na account cez link
+- Show price per session from programs table
 
 ## Extra things
 
