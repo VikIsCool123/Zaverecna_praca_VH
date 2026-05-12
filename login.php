@@ -11,7 +11,7 @@ if (isset($_POST["res-button"])) {
     $password = $_POST["InputPassword"];
     $password = md5($password);
 
-    $stmt = mysqli_prepare($connect, "SELECT password FROM users  WHERE email=?");
+    $stmt = mysqli_prepare($connect, "SELECT password, id FROM users  WHERE email=?");
     mysqli_stmt_bind_param($stmt, "s", $email);
 
     if (mysqli_stmt_execute($stmt)) {
@@ -20,6 +20,7 @@ if (isset($_POST["res-button"])) {
         if ($password == $user["password"]){
             echo "Hooary! :)";
             $_SESSION["email"] = $email;
+            $_SESSION["user_id"] = $user["id"];
             header("Location: index.php");
         } else {
             echo "Wrong password!";
