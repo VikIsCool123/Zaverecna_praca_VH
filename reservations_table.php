@@ -48,7 +48,7 @@
         die("Connection failed: " . mysqli_connect_error());
     }
 
-    $stmt = mysqli_prepare($connect, "SELECT * FROM reservations WHERE user_id=?");
+    $stmt = mysqli_prepare($connect, "SELECT * FROM reservations JOIN programs ON reservations.program_id = programs.id  WHERE user_id=?");
     mysqli_stmt_bind_param($stmt, "s", $_SESSION["user_id"]);
     
     // Kontrola ze ci vysiel statement (ziadne errory)
@@ -67,6 +67,7 @@
             <?php 
                 $date_time = new DateTime($reservation["time"]); 
                 echo "📅 " . $date_time->format("j F Y");
+                echo " - " . $reservation["name"];
             ?>
         </div>
     <?php endforeach; ?>
