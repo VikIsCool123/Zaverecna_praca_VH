@@ -55,12 +55,39 @@
     border: 2px solid rgb(61, 0, 0);
     border-radius: 20px;
 }
+.container-profile-box{
+    background-color: rgb(251, 237, 220);
+    padding: 10px;
+    border: 2px solid rgb(61, 0, 0);
+    border-radius: 20px;
+    
+    flex: 2;
+    min-width: min(100%,400px);
+    max-height: 350px;
+}
+.container-profile-box-reservations{
+    background-color: rgb(251, 237, 220);
+    padding: 10px;
+    border: 2px solid rgb(61, 0, 0);
+    border-radius: 20px;
+    
+    flex: 3;
+    min-width: min(100%,400px);
+    max-height: 350px;
+}
 .container1{
     width: 100%;
     padding: 20px 60px;
 }
 .container2{
     padding: 20px 60px;
+}
+.container-profile{
+    width: 100%;
+    padding: 20px 60px;
+    gap: 40px;
+    display: flex;
+    flex-wrap: wrap;
 }
 .p1{
     max-width: 1000px;
