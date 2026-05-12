@@ -4,7 +4,6 @@
 
 - Config file and sql file
 - Add admin page to see users
-- Zabranit pripejenie na account cez link
 
 ## Extra things
 
