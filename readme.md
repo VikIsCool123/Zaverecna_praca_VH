@@ -15,3 +15,5 @@
 - add error message for reservations
 - remove reservation
 - Show price per session from programs table
+- add comments to all of the code
+- add 3 dots on the bottom of the reservations in case of reservation overload

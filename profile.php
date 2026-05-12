@@ -28,6 +28,7 @@
                 </div>
                 <div class="container-profile-box-reservations">
                     <h2>Reservations</h2>
+                    <?php include "reservations_table.php"?>
                 </div>
             </div>
         </div>
