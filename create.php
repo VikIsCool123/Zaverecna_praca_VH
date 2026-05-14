@@ -1,10 +1,5 @@
 <?php 
-$connect = mysqli_connect("localhost","root","","relaxation_center");
-
-if (!$connect) {
-    die("Connection failed: " . mysqli_connect_error());
-}
-
+include "users.php";
 if (isset($_POST["res-button"])) {
     $name = $_POST["InputName"];
     $age = $_POST["InputAge"];
@@ -13,31 +8,26 @@ if (isset($_POST["res-button"])) {
     $password = $_POST["InputPassword"];
     $password = md5($password);
 
-    $stmt = mysqli_prepare($connect, "SELECT password FROM users  WHERE email=?");
-    mysqli_stmt_bind_param($stmt, "s", $email);
+    $users = new Users();
+    $previous_user = $users->getUser($email);
     
-    // Kontrola ze ci vysiel statement (ziadne errory)
-    if (mysqli_stmt_execute($stmt)) {
-        $result = $stmt->get_result();
-
+    // Ked je error, ziadny pouzivatel neexistuje
+    if ($previous_user != "Error!") {
         // Existuje pouzivatel?
-        if($result->num_rows == 0){
-            $stmt = mysqli_prepare($connect, "INSERT INTO users (name, age, telephone, email, password) VALUES (?, ?, ?, ?, ?)");
-            mysqli_stmt_bind_param($stmt, "sisss", $name, $age, $phone, $email, $password);
-            if (mysqli_stmt_execute($stmt)) {
+        if(!isset($previous_user["name"])){
+            $my_user = $users->insertUser($name, $age, $phone, $email, $password);
+            if ($my_user != "Error!") {
                 echo "Account created.";
                 header("Location: account_login.php");
             } else {
-                echo "Error: " . mysqli_error($connect);
+                echo "Error!";
             }
         } else {
             echo "Email already exists.";
         }
 
     } else {
-        echo "Error: " . mysqli_error($connect);
+        echo "Error!";
     }
-
-    mysqli_stmt_close($stmt);
 }
 ?>

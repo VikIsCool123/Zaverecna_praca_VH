@@ -303,3 +303,7 @@ button:hover{
     border: 1px solid black;
     border-radius: 10px;
 }
+.container-reservations-table{
+    overflow-y: scroll;
+    max-height: 80%;
+}

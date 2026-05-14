@@ -10,36 +10,17 @@
     <body class="body-reservation" background="images/book.png"><!--The body of the webpage that has an image as the bacground.-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
         <?php include "parts/header.php"?>
+        <?php include "reservation_form.php"?>
         <?php if(!isset($_SESSION["user_id"])){
             header("Location: index.php");
         }?>
         <?php 
-            $connect = mysqli_connect("localhost","root","","relaxation_center");
-
-            if (!$connect) {
-                die("Connection failed: " . mysqli_connect_error());
-            }
-
             if (isset($_POST["res-button"])) {
                 $program = $_POST["SelectProgram"];
                 $time = $_POST["ChosenDate"];
-                //mysqli_query($connect,"INSERT INTO reservations (user_id, program_id, time, note) VALUES('30/08/1997', '$note')");
-
-                if (new DateTime($time) >= new DateTime()){
-                    $stmt = mysqli_prepare($connect, "INSERT INTO reservations (user_id, program_id, time) VALUES (?, ?, ?)");
-                    mysqli_stmt_bind_param($stmt, "sis", $_SESSION["user_id"], $program, $time);
-
-                    if (mysqli_stmt_execute($stmt)) {
-                        echo "Record inserted successfully.";
-                    } else {
-                        echo "Error: " . mysqli_error($connect);
-                    }
-
-                    mysqli_stmt_close($stmt);
-                }
-                else {
-                    $error = "This date is invalid! 6767676767";
-                }
+                
+                $reservations = new Reservations();
+                $error = $reservations->insertReservation($_SESSION["user_id"], $program, $time);
             }
         ?>
         <div class="container4"><!--Container for the form.-->
