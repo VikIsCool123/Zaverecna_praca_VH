@@ -42,13 +42,6 @@
 ?>
 
 <?php
-    include "reservations.php";
-    $connect = mysqli_connect("localhost","root","","relaxation_center");
-
-    if (!$connect) {
-        die("Connection failed: " . mysqli_connect_error());
-    }
-
     $reservations = new Reservations();
     $my_reservations = $reservations->getAllReservations($_SESSION["user_id"]);
 ?>
