@@ -42,6 +42,7 @@
 ?>
 
 <?php
+    include "reservations.php";
     $reservations = new Reservations();
     $my_reservations = $reservations->getAllReservations($_SESSION["user_id"]);
 ?>
