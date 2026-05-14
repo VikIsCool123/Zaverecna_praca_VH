@@ -2,7 +2,6 @@
 
 ## Main things
 
-- Config file and sql file
 - Add admin page to see users
 - fix the footer
 
