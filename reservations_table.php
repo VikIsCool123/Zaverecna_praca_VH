@@ -42,23 +42,15 @@
 ?>
 
 <?php
+    include "reservations.php";
     $connect = mysqli_connect("localhost","root","","relaxation_center");
 
     if (!$connect) {
         die("Connection failed: " . mysqli_connect_error());
     }
 
-    $stmt = mysqli_prepare($connect, "SELECT * FROM reservations JOIN programs ON reservations.program_id = programs.id  WHERE user_id=?");
-    mysqli_stmt_bind_param($stmt, "s", $_SESSION["user_id"]);
-    
-    // Kontrola ze ci vysiel statement (ziadne errory)
-    if (mysqli_stmt_execute($stmt)) {
-        $result = $stmt->get_result();
-        $my_reservations = [];
-        while ($reservation = $result->fetch_assoc()) {
-            $my_reservations[] = $reservation;
-        }
-    }
+    $reservations = new Reservations();
+    $my_reservations = $reservations->getAllReservations($_SESSION["user_id"]);
 ?>
 
 <div class="container-reservations-table">

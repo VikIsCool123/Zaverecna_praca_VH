@@ -19,8 +19,8 @@
                 $program = $_POST["SelectProgram"];
                 $time = $_POST["ChosenDate"];
                 
-                $reservation_form = new ReservationForm();
-                $error = $reservation_form->insertReservation($_SESSION["user_id"], $program, $time);
+                $reservations = new Reservations();
+                $error = $reservations->insertReservation($_SESSION["user_id"], $program, $time);
             }
         ?>
         <div class="container4"><!--Container for the form.-->
