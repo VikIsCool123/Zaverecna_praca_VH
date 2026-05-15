@@ -10,6 +10,19 @@
           $this->connection = $this->getConnection();
       }
 
+      public function getAllUsers() {
+          $sql = "SELECT * FROM users";
+          try {
+              $statement = $this->connection->prepare($sql);
+              $getAll = $statement->execute();
+              http_response_code(200);
+              return $statement->fetchAll(PDO::FETCH_ASSOC);
+          } catch (\Exception $exception) {
+              http_response_code(500);
+              return "Error!";
+          }
+      }
+
       public function getUser($email) {
           $sql = "SELECT * FROM users  WHERE email=(:email)";
           try {

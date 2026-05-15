@@ -15,6 +15,7 @@ if (isset($_POST["res-button"])) {
             echo "Hooary! :)";
             $_SESSION["email"] = $email;
             $_SESSION["user_id"] = $my_user["id"];
+            $_SESSION["is_admin"] = $my_user["is_admin"];
             header("Location: index.php");
         } else {
             echo "Wrong password!";
