@@ -44,7 +44,7 @@
 <?php
     include "reservations.php";
     $reservations = new Reservations();
-    $my_reservations = $reservations->getAllReservations($_SESSION["user_id"]);
+    $my_reservations = $reservations->getUserReservations($_SESSION["user_id"]);
 ?>
 
 <div class="container-reservations-table">

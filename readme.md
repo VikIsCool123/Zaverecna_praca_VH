@@ -7,6 +7,10 @@
 -- 2. Get to the admin page
 -- 3. Show the admin page
 -- 4. Allow CRUD on the admin page
+--- CREATE: user-signup, reservation-create
+--- READ: user, users, reservations+programme
+--- UPDATE:
+--- DELETE:
 - fix the footer
 - Webová stránka musí obsahovať CRUD operácie nad aspoň jednou entitou (produkty, články, komentáre atď.)
 - Čím vyššie percento dynamických častí na stránke, tým lepšia známka

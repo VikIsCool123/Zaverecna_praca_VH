@@ -10,7 +10,20 @@
           $this->connection = $this->getConnection();
       }
 
-      public function getAllReservations($user_id) {
+      public function getAllReservations() {
+          $sql = "SELECT * FROM reservations JOIN programs ON reservations.program_id = programs.id";
+          try {
+              $statement = $this->connection->prepare($sql);
+              $getAll = $statement->execute();
+              http_response_code(200);
+              return $statement->fetchAll(PDO::FETCH_ASSOC);
+          } catch (\Exception $exception) {
+              http_response_code(500);
+              return "Error!";
+          }
+      }
+
+      public function getUserReservations($user_id) {
           $sql = "SELECT * FROM reservations JOIN programs ON reservations.program_id = programs.id  
                   WHERE user_id= (:user_id)";
           try {
