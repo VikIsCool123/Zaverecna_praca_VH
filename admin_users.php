@@ -14,14 +14,14 @@
             header("Location: index.php");
         }?>
         <div class="container-section">
-            <div class="container-profile">
-                <div class="container-profile-box"><!--The banner with the welcome text.-->
+            <div class="container-admin">
+                <div class="container-admin-box"><!--The banner with the welcome text.-->
                     <?php
                         include "users.php";
                         $users = new Users();
                         $all_users = $users -> getAllUsers();
                     ?>
-                    <table class="reservation-container">
+                    <table class="admin-table">
                         <tr>
                             <th>Name</th>
                             <th>Age</th>
