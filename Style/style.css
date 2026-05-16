@@ -41,7 +41,7 @@
 .container-section{
     display: flex;
     justify-content: center;
-    height: calc(100vh - 90px - 30px);
+    min-height: calc(100vh - 90px - 30px);
 }
 .container-section2{
     display: flex;
