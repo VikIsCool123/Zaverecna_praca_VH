@@ -25,6 +25,7 @@
                             echo "Reversation to be deleted:" . $_POST["ReservationId"];
                             $reservation_id= $_POST["ReservationId"];
                             $reservations -> cancelReservation($reservation_id);
+                            header("Location: admin_reservations.php");
                         }
                     ?>
                     <table class="admin-table">
