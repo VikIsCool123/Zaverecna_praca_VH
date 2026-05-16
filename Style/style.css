@@ -50,17 +50,16 @@
 }
 .container-index-texts{
     background-color: rgb(251, 237, 220);
-    margin-right: 600px;
     padding: 10px;
     border: 2px solid rgb(61, 0, 0);
     border-radius: 20px;
+    max-width: 600px;
 }
 .container-profile-box{
     background-color: rgb(251, 237, 220);
     padding: 10px;
     border: 2px solid rgb(61, 0, 0);
     border-radius: 20px;
-    
     flex: 2;
     min-width: min(100%,400px);
     max-height: 350px;
@@ -151,7 +150,7 @@ button:hover{
     display: flex;
     justify-content: center;
     text-align: center;
-    height: calc(100vh - 90px - 30px);
+    min-height: calc(100vh - 90px - 30px);
     color: white;
     font-weight: bolder;
 }
@@ -204,7 +203,6 @@ button:hover{
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    overflow: hidden;
 }
 .body-about-us{
     background-size: cover;

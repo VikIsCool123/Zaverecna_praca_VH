@@ -2,9 +2,7 @@
 
 ## Main things
 
-- fix the footer
 - secure admin panel
-- make website phone proof
 
 ## Extra things
 
