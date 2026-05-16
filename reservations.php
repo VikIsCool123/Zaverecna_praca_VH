@@ -100,5 +100,22 @@
               return "Error!";
           }
       }
+
+      public function cancelReservation($reservation_id) {
+
+          $sql = "DELETE FROM reservations
+                  WHERE id = :reservation_id";
+          try {
+              $statement = $this->connection->prepare($sql);
+              $cancel = $statement->execute(array(
+                  ':reservation_id' => $reservation_id,
+              ));
+              http_response_code(200);
+              return null;
+          } catch (\Exception $exception) {
+              http_response_code(500);
+              return "Error!";
+          }
+      }
   }
 ?>

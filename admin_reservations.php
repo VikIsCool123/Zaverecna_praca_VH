@@ -20,6 +20,12 @@
                         include "reservations.php";
                         $reservations = new Reservations();
                         $all_reservations = $reservations -> getAllReservations();
+
+                        if (isset($_POST["res-button"])) {
+                            echo "Reversation to be deleted:" . $_POST["ReservationId"];
+                            $reservation_id= $_POST["ReservationId"];
+                            $reservations -> cancelReservation($reservation_id);
+                        }
                     ?>
                     <table class="admin-table">
                         <tr>
@@ -33,7 +39,13 @@
                                 <td><?php echo $reservation["user_id"] ?></td>
                                 <td><?php echo $reservation["name"] ?></td>
                                 <td><?php echo $reservation["time"] ?></td>
-                                <td><a href="reservation.php?id=<?php echo $reservation['reservationId']?>" class="edit-button">🪿 Edit</a></td>
+                                <td><a href="reservation.php?id=<?php echo $reservation['reservationId']?>" class="btn btn-primary">🪿 Edit</a></td>
+                                <td>
+                                    <form id="form-res" action="" method="POST"><!--The form itself.-->
+                                        <input type="hidden" name="ReservationId" value="<?php echo $reservation['reservationId']; ?>">
+                                        <button class="btn btn-primary" id="res-button" name="res-button" type="submit">🥔 Cancel</button>
+                                    </form>
+                                </td>
                             </tr> 
                         <?php endforeach; ?>
                     </table>
