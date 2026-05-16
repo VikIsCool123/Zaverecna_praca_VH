@@ -21,6 +21,10 @@
 
             // Get current reservation if in URL (for editing)
             if (isset($_GET["id"])){ // if reverse.php?id=...
+                if((!isset($_SESSION["is_admin"])) || ($_SESSION["is_admin"] === 0)){
+                    header("Location: index.php");
+                    exit;
+                }
                 $reservation = $reservations->getReservation((int)$_GET["id"]);
                 $reservation_program_id = $reservation["program_id"];
                 $reservation_datetime = $reservation["time"];
