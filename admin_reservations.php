@@ -26,13 +26,15 @@
                             <th>User ID</th>
                             <th>Program</th>
                             <th>Date</th>
+                            <th>Actions</th>
                         </tr>
                         <?php foreach ($all_reservations as $reservation): ?>
                             <tr>
                                 <td><?php echo $reservation["user_id"] ?></td>
                                 <td><?php echo $reservation["name"] ?></td>
                                 <td><?php echo $reservation["time"] ?></td>
-                            </tr>
+                                <td><a href="reservation.php?id=<?php echo $reservation['reservationId']?>" class="edit-button">🪿 Edit</a></td>
+                            </tr> 
                         <?php endforeach; ?>
                     </table>
                 </div>
