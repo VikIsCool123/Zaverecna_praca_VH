@@ -21,6 +21,12 @@
                         include "users.php";
                         $users = new Users();
                         $all_users = $users -> getAllUsers();
+
+                        if (isset($_POST["res-button"])) {
+                            $id= $_POST["userId"];
+                            $users -> deleteUser($id);
+                            header("Location: admin_users.php");
+                        }
                     ?>
                     <table class="admin-table">
                         <tr>
@@ -28,6 +34,7 @@
                             <th>Date of birth</th>
                             <th>Email</th>
                             <th>Telephone</th>
+                            <th>Actions</th>
                         </tr>
                         <?php foreach ($all_users as $user): ?>
                             <tr>
@@ -35,6 +42,12 @@
                                 <td><?php echo $user["date_of_birth"] ?></td>
                                 <td><?php echo $user["email"] ?></td>
                                 <td><?php echo $user["telephone"] ?></td>
+                                <td>
+                                    <form id="form-res" action="" method="POST"><!--The form itself.-->
+                                        <input type="hidden" name="userId" value="<?php echo $user['id']; ?>">
+                                        <button class="btn btn-primary" id="res-button" name="res-button" type="submit">ඞ Delete</button>
+                                    </form>
+                                </td>
                             </tr>
                         <?php endforeach; ?>
                     </table>

@@ -65,5 +65,22 @@
               return "Error!";
           }
       }
+
+      public function deleteUser($id) {
+
+          $sql = "DELETE FROM users
+                  WHERE id = :id";
+          try {
+              $statement = $this->connection->prepare($sql);
+              $cancel = $statement->execute(array(
+                  ':id' => $id,
+              ));
+              http_response_code(200);
+              return null;
+          } catch (\Exception $exception) {
+              http_response_code(500);
+              return "Error!";
+          }
+      }
   }
 ?>

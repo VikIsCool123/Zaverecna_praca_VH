@@ -4,8 +4,6 @@
 
 ## Extra things
 
-- Change age to date of birth
-- add error message for reservations
 - add ability to remove reservations from profile page
 - Show price per session from programs table
 - Populate program select with db data
