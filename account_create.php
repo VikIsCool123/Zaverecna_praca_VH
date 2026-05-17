@@ -36,7 +36,7 @@
                 </div>
                 <div class="mb-3"><!--Input password.-->
                     <label for="exampleInputPassword1" class="form-label">Password</label>
-                    <input type="text" class="form-control" id="exampleInputPassword1" name="InputPassword">
+                    <input type="password" class="form-control" id="exampleInputPassword1" name="InputPassword">
                 </div>
                 <div class="form-check"><!--Checkbox.-->
                     <input class="form-check-input" type="checkbox" value="" id="checkDefault">
