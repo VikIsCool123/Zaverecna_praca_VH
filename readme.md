@@ -2,8 +2,6 @@
 
 ## Main things
 
-- secure admin panel
-
 ## Extra things
 
 - Change age to date of birth
