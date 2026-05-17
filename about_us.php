@@ -23,7 +23,7 @@
                             </h2>
                             <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sollicitudin tellus ac diam lobortis, a suscipit felis suscipit. Sed non lacus nec nisl condimentum scelerisque. Aliquam erat volutpat. Nulla cursus arcu dolor, non laoreet nibh mattis efficitur. Quisque sed ligula ex. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam facilisis leo congue libero varius consequat. Vestibulum commodo in nisi vel viverra. Donec ligula mi, finibus ut lacus ut, finibus venenatis orci. Mauris rhoncus nunc leo, ut vehicula nunc molestie at. Nunc ut pharetra ligula. Nulla consectetur lacus nisi, sit amet maximus sapien condimentum a. Mauris semper vulputate urna, ut sagittis urna tristique sit amet. Aliquam convallis magna sit amet felis ultricies ultricies vitae at enim. Aenean mattis est facilisis, ultricies est posuere, faucibus nulla.
+                                    Luises Relaxation Center began over a decade ago as a small family-run wellness space with a simple goal — to create a peaceful retreat where people could escape the stress of everyday life. Inspired by traditional relaxation techniques and a love for calm, welcoming environments, the center slowly became known for its warm atmosphere and personal care.
                                 </div>
                             </div>
                         </div>
@@ -35,19 +35,19 @@
                             </h2>
                             <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sollicitudin tellus ac diam lobortis, a suscipit felis suscipit. Sed non lacus nec nisl condimentum scelerisque. Aliquam erat volutpat. Nulla cursus arcu dolor, non laoreet nibh mattis efficitur. Quisque sed ligula ex. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam facilisis leo congue libero varius consequat. Vestibulum commodo in nisi vel viverra. Donec ligula mi, finibus ut lacus ut, finibus venenatis orci. Mauris rhoncus nunc leo, ut vehicula nunc molestie at. Nunc ut pharetra ligula. Nulla consectetur lacus nisi, sit amet maximus sapien condimentum a. Mauris semper vulputate urna, ut sagittis urna tristique sit amet. Aliquam convallis magna sit amet felis ultricies ultricies vitae at enim. Aenean mattis est facilisis, ultricies est posuere, faucibus nulla.
+                                    Located in the peaceful countryside of Valhalla, Luises Relaxation Center is surrounded by breathtaking natural beauty, fresh mountain air, and a calm atmosphere perfect for relaxation. Inspired by the tranquility of Nordic landscapes, the center offers guests a quiet escape where they can unwind, recharge, and enjoy a sense of balance far away from the stress of everyday life.
                                 </div>
                             </div>
                         </div>
                         <div class="accordion-item">
                             <h2 class="accordion-header"><!--Third accordion item with text.-->
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    Personell
+                                    Personnel
                                 </button>
                             </h2>
                             <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sollicitudin tellus ac diam lobortis, a suscipit felis suscipit. Sed non lacus nec nisl condimentum scelerisque. Aliquam erat volutpat. Nulla cursus arcu dolor, non laoreet nibh mattis efficitur. Quisque sed ligula ex. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam facilisis leo congue libero varius consequat. Vestibulum commodo in nisi vel viverra. Donec ligula mi, finibus ut lacus ut, finibus venenatis orci. Mauris rhoncus nunc leo, ut vehicula nunc molestie at. Nunc ut pharetra ligula. Nulla consectetur lacus nisi, sit amet maximus sapien condimentum a. Mauris semper vulputate urna, ut sagittis urna tristique sit amet. Aliquam convallis magna sit amet felis ultricies ultricies vitae at enim. Aenean mattis est facilisis, ultricies est posuere, faucibus nulla.
+                                    At Luises Relaxation Center, our friendly and experienced personnel are dedicated to creating a calm and welcoming experience for every guest. From relaxation specialists to wellness staff, each team member is committed to providing attentive care, professionalism, and comfort. Their passion for wellness and hospitality helps ensure that every visit feels peaceful, refreshing, and truly relaxing.
                                 </div>
                             </div>
                         </div>
@@ -61,8 +61,8 @@
                         </ul>
                     </div>
                     <h1>Veriety of our services</h1><!--Paragraph of text a Learn more button that is actually not a button but an ,, a ,, with style like a button.-->
-                    <p class="p1">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-                    <a href="variety.html" class="about-us-button">Learn More</a>
+                    <p class="p1">Continue on to our wide variety of programs designed to help you relax, recharge, and enjoy a personalized wellness experience tailored to your needs.</p>
+                    <a href="variety.php" class="about-us-button">Learn More</a>
                 </div>
             </div>
         </div>

@@ -5,7 +5,6 @@
 ## Extra things
 
 - Change age to date of birth
-- Change background in profile page
 - add error message for reservations
 - add ability to remove reservations from profile page
 - Show price per session from programs table
