@@ -19,10 +19,9 @@
                     <?php include "profile_info.php"?>
                     <h2>Profile</h2>
                     <p>Username: <?php echo $user["name"] ?></p>
-                    <p>Age: <?php echo $user["age"] ?></p>
+                    <p>Date of birth: <?php echo $user["date_of_birth"] ?></p>
                     <p>Email: <?php echo $user["email"] ?></p>
                     <p>Phone number: <?php echo $user["telephone"] ?></p>
-                    <p>Password: ******</p>
                     <div class="hero_buttons">
                         <a href="logout.php"><!--Button that moves you to the Veriety tab.-->
                             <button class="hero-button1">Log out</button>

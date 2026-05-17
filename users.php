@@ -38,14 +38,14 @@
           }
       }
 
-      public function insertUser($name, $age, $telephone, $email, $password) {
-          $sql = "INSERT INTO users (name, age, telephone, email, password)
-                  VALUES (:name, :age, :telephone, :email, :password)";
+      public function insertUser($name, $date, $telephone, $email, $password) {
+          $sql = "INSERT INTO users (name, date_of_birth, telephone, email, password)
+                  VALUES (:name, :date_of_birth, :telephone, :email, :password)";
           try {
               $statement = $this->connection->prepare($sql);
               $insert = $statement->execute(array(
                   ':name' => $name,
-                  ':age' => $age,
+                  ':date_of_birth' => $date,
                   ':telephone' => $telephone,
                   ':email' => $email,
                   ':password' => $password

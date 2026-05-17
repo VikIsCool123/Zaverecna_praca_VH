@@ -25,14 +25,14 @@
                     <table class="admin-table">
                         <tr>
                             <th>Name</th>
-                            <th>Age</th>
+                            <th>Date of birth</th>
                             <th>Email</th>
                             <th>Telephone</th>
                         </tr>
                         <?php foreach ($all_users as $user): ?>
                             <tr>
                                 <td><?php echo $user["name"] ?></td>
-                                <td><?php echo $user["age"] ?></td>
+                                <td><?php echo $user["date_of_birth"] ?></td>
                                 <td><?php echo $user["email"] ?></td>
                                 <td><?php echo $user["telephone"] ?></td>
                             </tr>

@@ -9,7 +9,6 @@
 - add ability to remove reservations from profile page
 - Show price per session from programs table
 - Populate program select with db data
-- fix the lorem ipum texts
 - Allow changing password and other stuff in profile of the users
 
 ## Note

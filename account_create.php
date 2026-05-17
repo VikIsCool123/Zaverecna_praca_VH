@@ -21,9 +21,9 @@
                         <input type="text" class="form-control" id="exampleInputName1" name="InputName">
                     </div>
                 </div>
-                <div class="mb-3"><!--Input for the Age.-->
-                    <label for="exampleInputAge1" class="form-label">Age</label>
-                    <input type="number" class="form-control" id="exampleInputAge1" name="InputAge">
+                <div class="mb-3"><!--Input for the Date.-->
+                    <label for="exampleInputDate1" class="form-label">Date of birth</label>
+                    <input type="date" class="form-control" id="exampleInputDate1" name="InputDate">
                 </div>
                 <div class="mb-3"><!--Input for the Email address.-->
                     <label for="exampleInputEmail1" class="form-label">Email address</label>
