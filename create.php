@@ -15,12 +15,12 @@ if (isset($_POST["res-button"])) {
     if ($previous_user != "Error!") {
         // Existuje pouzivatel?
         if(!isset($previous_user["name"])){
-            $my_user = $users->insertUser($name, $date, $phone, $email, $password);
-            if ($my_user != "Error!") {
+            $my_user_error = $users->insertUser($name, $date, $phone, $email, $password);
+            if ($my_user_error == null) {
                 echo "Account created.";
                 header("Location: account_login.php");
             } else {
-                echo "Error!";
+                echo $my_user_error;
             }
         } else {
             echo "Email already exists.";

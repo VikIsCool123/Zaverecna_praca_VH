@@ -39,6 +39,14 @@
       }
 
       public function insertUser($name, $date, $telephone, $email, $password) {
+        // Is chosen date > current date
+        // This means the date is in the FUTURE
+        // new DateTime() creates the current datetime
+        if (new DateTime($date) > new DateTime()){
+          http_response_code(500);
+          return "This date is invalid! 6767676767";
+        }
+        
           $sql = "INSERT INTO users (name, date_of_birth, telephone, email, password)
                   VALUES (:name, :date_of_birth, :telephone, :email, :password)";
           try {
