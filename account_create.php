@@ -7,7 +7,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
         <link rel="stylesheet" href="Style/style.css"><!--The link/path to the style file with all the styles used to style the webpage.-->
     </head>
-    <body class="body-reservation" background="images/book.png"><!--The body of the webpage that has an image as the bacground.-->
+    <body class="body-reservation" background="images/reception.png"><!--The body of the webpage that has an image as the bacground.-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
         <?php include "parts/header.php"?>
         <?php if(isset($_SESSION["user_id"])){
@@ -21,9 +21,9 @@
                         <input type="text" class="form-control" id="exampleInputName1" name="InputName">
                     </div>
                 </div>
-                <div class="mb-3"><!--Input for the Age.-->
-                    <label for="exampleInputAge1" class="form-label">Age</label>
-                    <input type="number" class="form-control" id="exampleInputAge1" name="InputAge">
+                <div class="mb-3"><!--Input for the Date.-->
+                    <label for="exampleInputDate1" class="form-label">Date of birth</label>
+                    <input type="date" class="form-control" id="exampleInputDate1" name="InputDate">
                 </div>
                 <div class="mb-3"><!--Input for the Email address.-->
                     <label for="exampleInputEmail1" class="form-label">Email address</label>
@@ -36,7 +36,7 @@
                 </div>
                 <div class="mb-3"><!--Input password.-->
                     <label for="exampleInputPassword1" class="form-label">Password</label>
-                    <input type="text" class="form-control" id="exampleInputPassword1" name="InputPassword">
+                    <input type="password" class="form-control" id="exampleInputPassword1" name="InputPassword">
                 </div>
                 <div class="form-check"><!--Checkbox.-->
                     <input class="form-check-input" type="checkbox" value="" id="checkDefault">

@@ -55,6 +55,9 @@
       }
 
       public function insertReservation($user_id, $program_id, $time) {
+        // Is chosen date < current date
+        // This means the date is in the past
+        // new DateTime() creates the current datetime
         if (new DateTime($time) < new DateTime()){
           http_response_code(500);
           return "This date is invalid! 6767676767";

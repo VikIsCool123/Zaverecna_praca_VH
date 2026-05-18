@@ -7,7 +7,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
         <link rel="stylesheet" href="Style/style.css"><!--The link/path to the style file with all the styles used to style the webpage.-->
     </head>
-    <body class="body-reservation" background="images/book.png"><!--The body of the webpage that has an image as the bacground.-->
+    <body class="body-reservation" background="images/adminPanel1.png"><!--The body of the webpage that has an image as the bacground.-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
         <?php include "parts/header.php"?>
         <?php if((!isset($_SESSION["is_admin"])) || ($_SESSION["is_admin"] === 0)){
@@ -21,20 +21,33 @@
                         include "users.php";
                         $users = new Users();
                         $all_users = $users -> getAllUsers();
+
+                        if (isset($_POST["res-button"])) {
+                            $id= $_POST["userId"];
+                            $users -> deleteUser($id);
+                            header("Location: admin_users.php");
+                        }
                     ?>
                     <table class="admin-table">
                         <tr>
                             <th>Name</th>
-                            <th>Age</th>
+                            <th>Date of birth</th>
                             <th>Email</th>
                             <th>Telephone</th>
+                            <th>Actions</th>
                         </tr>
                         <?php foreach ($all_users as $user): ?>
                             <tr>
                                 <td><?php echo $user["name"] ?></td>
-                                <td><?php echo $user["age"] ?></td>
+                                <td><?php echo $user["date_of_birth"] ?></td>
                                 <td><?php echo $user["email"] ?></td>
                                 <td><?php echo $user["telephone"] ?></td>
+                                <td>
+                                    <form id="form-res" action="" method="POST"><!--The form itself.-->
+                                        <input type="hidden" name="userId" value="<?php echo $user['id']; ?>">
+                                        <button class="btn btn-primary" id="res-button" name="res-button" type="submit">ඞ Delete</button>
+                                    </form>
+                                </td>
                             </tr>
                         <?php endforeach; ?>
                     </table>
