@@ -28,8 +28,6 @@
                 $reservation = $reservations->getReservation((int)$_GET["id"]);
                 $reservation_program_id = $reservation["program_id"];
                 $reservation_datetime = $reservation["time"];
-                echo $reservation_program_id;
-                echo $reservation_datetime;
             }
 
             // Make reservation (if submit from form)

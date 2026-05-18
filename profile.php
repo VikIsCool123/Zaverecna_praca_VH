@@ -26,6 +26,9 @@
                         <a href="logout.php"><!--Button that moves you to the Veriety tab.-->
                             <button class="hero-button1">Log out</button>
                         </a>
+                        <a href="account_create.php?id=<?php echo $_SESSION['user_id'] ?>"><!--Button that moves you to the Veriety tab.-->
+                            <button class="hero-button1">Edit</button>
+                        </a>
                     </div>
                 </div>
                 <div class="container-profile-box-reservations">
