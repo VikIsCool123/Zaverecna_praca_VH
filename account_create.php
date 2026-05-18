@@ -48,11 +48,11 @@
                 $password = md5($password);
 
                 $users = new Users();
-                $previous_user = $users->getUser($email);
+                $existence = $users -> existsUser($email);
 
                 // If we are editing a user (have "id" in url parameters)
                 if (isset($_GET["id"])) {
-                    $my_user_error = $users->updateUser($name, $date, $phone, $email, $password);
+                    $my_user_error = $users->updateUser($_GET["id"], $name, $date, $phone, $email, $password);
                     if ($my_user_error == null) {
                         echo "Account updated.";
                         if ((!isset($_SESSION["is_admin"])) || ($_SESSION["is_admin"] === 1)) {
@@ -63,23 +63,18 @@
                     } else {
                         echo $my_user_error;
                     }
-                    // Ked je error, ziadny pouzivatel neexistuje
-                } elseif ($previous_user != "Error: user doesn't exist") {
-                    echo $previous_user;
+
+                } elseif ($existence == true) { // If we are not editing (this means we are creating), and user already exists
                     echo "Error - user already exists!";
                     exit;
+
                 } else { // If we are creating a new user
-                    // Existuje pouzivatel?
-                    if (!isset($previous_user["name"])) {
-                        $my_user_error = $users->insertUser($name, $date, $phone, $email, $password);
-                        if ($my_user_error == null) {
-                            echo "Account created.";
-                            header("Location: account_login.php");
-                        } else {
-                            echo $my_user_error;
-                        }
+                    $my_user_error = $users->insertUser($name, $date, $phone, $email, $password);
+                    if ($my_user_error == null) {
+                        echo "Account created.";
+                        header("Location: account_login.php");
                     } else {
-                        echo "Email already exists.";
+                        echo $my_user_error;
                     }
                 }
             }

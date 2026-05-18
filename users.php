@@ -43,6 +43,27 @@ class Users extends Database
         }
     }
 
+    public function existsUser($email)
+    {
+        $sql = "SELECT * FROM users  WHERE email=(:email)";
+        try {
+            $statement = $this->connection->prepare($sql);
+            $get = $statement->execute(array(
+                ':email' => $email
+            ));
+            $user = $statement->fetch(PDO::FETCH_ASSOC);
+            if (!$user) {
+                http_response_code(200);
+                return false;
+            }
+            http_response_code(200);
+            return true;
+        } catch (\Exception $exception) {
+            http_response_code(500);
+            return "Error:" . $exception->getMessage();
+        }
+    }
+
     public function getUser($email)
     {
         $sql = "SELECT * FROM users  WHERE email=(:email)";
@@ -93,7 +114,7 @@ class Users extends Database
         }
     }
 
-    public function updateUser($name, $date, $telephone, $email, $password)
+    public function updateUser($id, $name, $date, $telephone, $email, $password)
     {
         // Cannot create a user born in the future
         // input date > current date, then error
@@ -103,16 +124,16 @@ class Users extends Database
         }
 
         $sql = "UPDATE users
-                  SET name = :name, date_of_birth = :date, telephone = :telephone, email = :email, password = :password
-                  WHERE email = :email";
+                  SET name = :name, date_of_birth = :date, telephone = :telephone, password = :password
+                  WHERE id = :id";
         try {
             $statement = $this->connection->prepare($sql);
             $update = $statement->execute(array(
               ':name' => $name,
               ':date' => $date,
               ':telephone' => $telephone,
-              ':email' => $email,
               ':password' => $password,
+              ':id' => $id
             ));
             http_response_code(200);
             return null;
