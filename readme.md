@@ -6,8 +6,6 @@ I used junstyle's "php cs fixer" (linter) extension to format all code to PSR-12
 
 ## Todo
 
-- existsUser method in users.php
-
 ## Note
 
 - add comments to all of the code
