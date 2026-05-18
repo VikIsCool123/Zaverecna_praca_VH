@@ -10,29 +10,101 @@
     <body class="body-reservation" background="images/reception.png"><!--The body of the webpage that has an image as the bacground.-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
         <?php include "parts/header.php"?>
-        <?php if(isset($_SESSION["user_id"])){
-            header("Location: index.php");
-        }?>
+        <?php include "users.php"?>
+        <?php
+            $user_name = "";
+            $user_date = "";
+            $user_email = "";
+            $user_phone = "";
+            $account_create_button_text = "Create Account";
+
+            // If we are editing an account
+            if (isset($_GET["id"])){ // if reverse.php?id=...
+                if((!isset($_SESSION["is_admin"])) || ($_SESSION["is_admin"] === 0)){
+                    // If we try to edit a user that isn't us, kick us out
+                    if (((int)$_GET["id"]) != ($_SESSION["user_id"])){
+                        header("Location: index.php");
+                        exit;
+                    }
+                }
+                $account_create_button_text = "Update Account";
+                $users = new Users();
+                $user_info = $users->getUserById((int)$_GET["id"]);
+                $user_name = $user_info["name"];
+                $user_date = $user_info["date_of_birth"];
+                $user_email = $user_info["email"];
+                $user_phone = $user_info["telephone"];
+            }
+            else if(isset($_SESSION["user_id"])){
+                header("Location: index.php");
+            }
+        ?>
+        <?php 
+            if (isset($_POST["res-button"])) {
+            $name = $_POST["InputName"];
+            $date = $_POST["InputDate"];
+            $email = $_POST["InputEmail"];
+            $phone = $_POST["InputTelephoneNumber"];
+            $password = $_POST["InputPassword"];
+            $password = md5($password);
+
+            $users = new Users();
+            $previous_user = $users->getUser($email);
+            
+            // If we are editing a user (have "id" in url parameters)
+            if (isset($_GET["id"])){
+                $my_user_error = $users->updateUser($name, $date, $phone, $email, $password);
+                if ($my_user_error == null) {
+                    echo "Account updated.";
+                    if((!isset($_SESSION["is_admin"])) || ($_SESSION["is_admin"] === 1)) {
+                        header("Location: admin_users.php");
+                    } else {
+                        header("Location: profile.php");
+                    }
+                } else {
+                    echo $my_user_error;
+                }
+            // Ked je error, ziadny pouzivatel neexistuje
+            } else if ($previous_user != "Error: user doesn't exist"){
+                echo $previous_user;
+                echo "Error - user already exists!";
+                exit;
+            } else { // If we are creating a new user
+                // Existuje pouzivatel?
+                if(!isset($previous_user["name"])){
+                    $my_user_error = $users->insertUser($name, $date, $phone, $email, $password);
+                    if ($my_user_error == null) {
+                        echo "Account created.";
+                        header("Location: account_login.php");
+                    } else {
+                        echo $my_user_error;
+                    }
+                } else {
+                    echo "Email already exists.";
+                }
+            }
+        }
+        ?>
         <div class="container5"><!--Container for the form.-->
-            <form id="form-res" action="create.php" method="POST"><!--The form itself.-->
+            <form id="form-res" action="" method="POST"><!--The form itself.-->
                 <div class="conatiner-form-name">
                     <div class="mb-3"><!--Input for the Name.-->
                         <label for="exampleInputName1" class="form-label">Name</label>
-                        <input type="text" class="form-control" id="exampleInputName1" name="InputName">
+                        <input type="text" class="form-control" id="exampleInputName1" name="InputName" value=<?php echo $user_name ?>>
                     </div>
                 </div>
                 <div class="mb-3"><!--Input for the Date.-->
                     <label for="exampleInputDate1" class="form-label">Date of birth</label>
-                    <input type="date" class="form-control" id="exampleInputDate1" name="InputDate">
+                    <input type="date" class="form-control" id="exampleInputDate1" name="InputDate" value=<?php echo $user_date ?>>
                 </div>
                 <div class="mb-3"><!--Input for the Email address.-->
                     <label for="exampleInputEmail1" class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" name="InputEmail" aria-describedby="emailHelp">
+                    <input <?php echo (isset($_GET["id"]) ? "disabled" : "") ?> type="email" class="form-control" id="exampleInputEmail1" name="InputEmail" aria-describedby="emailHelp" value=<?php echo $user_email ?>>
                     <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                 </div>
                 <div class="mb-3"><!--Input for the Telephone number.-->
                     <label for="exampleInputTelephoneNumber1" class="form-label">Telephone number (optional)</label>
-                    <input type="text" class="form-control" id="exampleInputTelephoneNumber1" name="InputTelephoneNumber">
+                    <input type="text" class="form-control" id="exampleInputTelephoneNumber1" name="InputTelephoneNumber" value=<?php echo $user_phone ?>>
                 </div>
                 <div class="mb-3"><!--Input password.-->
                     <label for="exampleInputPassword1" class="form-label">Password</label>
@@ -48,7 +120,7 @@
                         </div>
                     </div>
                     <div class="form-button"><!--Submit button.-->
-                        <button class="btn btn-primary" id="res-button" name="res-button" type="submit">Create account</button>
+                        <button class="btn btn-primary" id="res-button" name="res-button" type="submit"><?php echo $account_create_button_text ?></button>
                     </div>
                 </div>
             </form>

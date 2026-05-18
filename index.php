@@ -18,6 +18,7 @@
                     <p class="p1">In today’s busy world, taking time to relax is more important than ever. Constant stress, long days, and endless responsibilities can leave both the mind and body feeling exhausted. At Luises Relaxation Center, we believe everyone deserves a peaceful place to slow down, breathe deeply, and reconnect with themselves.</p>
                     <p class="p1">Our calming atmosphere is designed to help you leave everyday worries behind and focus entirely on your well-being. Whether you are looking to relieve stress, recharge your energy, or simply enjoy a quiet moment of peace, we offer the perfect environment for complete relaxation and comfort.</p>
                     <p><i>Note: You can only make a reservation after creating your account or logging into an already existing one.</i></p>
+                    <p><i>If you put an email in your account it cannot be changed.</i></p>
                     <div class="hero_buttons">
                         <a href="variety.php"><!--Button that moves you to the Veriety tab.-->
                             <button class="hero-button1">Variety</button>

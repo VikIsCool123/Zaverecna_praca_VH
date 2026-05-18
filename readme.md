@@ -7,6 +7,8 @@
 - Show price per session from programs table
 - Populate program select with db data
 - Allow changing password and other stuff in profile of the users
+- existsUser method in users.php
+- disable edit email
 
 ## Note
 

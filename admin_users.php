@@ -42,6 +42,7 @@
                                 <td><?php echo $user["date_of_birth"] ?></td>
                                 <td><?php echo $user["email"] ?></td>
                                 <td><?php echo $user["telephone"] ?></td>
+                                <td><a href="account_create.php?id=<?php echo $user['id']?>" class="btn btn-primary">🦫 Edit</a></td>
                                 <td>
                                     <form id="form-res" action="" method="POST"><!--The form itself.-->
                                         <input type="hidden" name="userId" value="<?php echo $user['id']; ?>">
