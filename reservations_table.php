@@ -53,7 +53,9 @@ $my_reservations = $reservations->getUserReservations($_SESSION["user_id"]);
             <?php
                 $date_time = new DateTime($reservation["time"]);
         echo "📅 " . $date_time->format("j F Y");
-        echo " - " . $reservation["name"];
+        echo " - " . $reservation["name"]; // program name
+        echo " - " . $reservation["price_per_session"]; // program price
+        echo " €";
         ?>
         </div>
     <?php endforeach; ?>
