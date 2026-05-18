@@ -15,5 +15,3 @@ I used junstyle's "php cs fixer" (linter) extension to format all code to PSR-12
 
 - add comments to all of the code
 - Čím vyššie percento dynamických častí na stránke, tým lepšia známka
-
-- Využívanie princípov PSR-\*
