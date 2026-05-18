@@ -1,4 +1,5 @@
-<?php 
+<?php
+
 include "users.php";
 session_start();
 
@@ -11,7 +12,7 @@ if (isset($_POST["res-button"])) {
     $my_user = $users->getUser($email);
 
     if ($my_user != "Error!") {
-        if ($password == $my_user["password"]){
+        if ($password == $my_user["password"]) {
             echo "Hooary! :)";
             $_SESSION["email"] = $email;
             $_SESSION["user_id"] = $my_user["id"];
@@ -24,4 +25,3 @@ if (isset($_POST["res-button"])) {
         echo "Error!";
     }
 }
-?>

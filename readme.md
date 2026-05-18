@@ -1,17 +1,19 @@
-# Todo
+# Luises Relaxation Center
 
-## Main things
+## PSR Formatting
 
-## Extra things
+I used junstyle's "php cs fixer" (linter) extension to format all code to PSR-12 standards.
 
-- Show price per session from programs table
-- Populate program select with db data
-- Allow changing password and other stuff in profile of the users
+## Todo
+
+- Make programs dynamic
+  - Show price per session from programs table
+  - Populate program select with db data
 - existsUser method in users.php
-- disable edit email
 
 ## Note
 
 - add comments to all of the code
 - Čím vyššie percento dynamických častí na stránke, tým lepšia známka
-- Využívanie princípov PSR-*
+
+- Využívanie princípov PSR-\*

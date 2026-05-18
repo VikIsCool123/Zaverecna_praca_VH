@@ -11,37 +11,36 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
         <?php include "parts/header.php"?>
         <?php include "reservations.php"?>
-        <?php if(!isset($_SESSION["user_id"])){
+        <?php if(!isset($_SESSION["user_id"])) {
             header("Location: index.php");
         }?>
-        <?php 
+        <?php
             $reservations = new Reservations();
-            $reservation_program_id = 1;
-            $reservation_datetime = 0;
+        $reservation_program_id = 1;
+        $reservation_datetime = 0;
 
-            // Get current reservation if in URL (for editing)
-            if (isset($_GET["id"])){ // if reverse.php?id=...
-                if((!isset($_SESSION["is_admin"])) || ($_SESSION["is_admin"] === 0)){
-                    header("Location: index.php");
-                    exit;
-                }
-                $reservation = $reservations->getReservation((int)$_GET["id"]);
-                $reservation_program_id = $reservation["program_id"];
-                $reservation_datetime = $reservation["time"];
+        // Get current reservation if in URL (for editing)
+        if (isset($_GET["id"])) { // if reverse.php?id=...
+            if((!isset($_SESSION["is_admin"])) || ($_SESSION["is_admin"] === 0)) {
+                header("Location: index.php");
+                exit;
             }
+            $reservation = $reservations->getReservation((int)$_GET["id"]);
+            $reservation_program_id = $reservation["program_id"];
+            $reservation_datetime = $reservation["time"];
+        }
 
-            // Make reservation (if submit from form)
-            if (isset($_POST["res-button"])) {
-                $program= $_POST["SelectProgram"];
-                $time = $_POST["ChosenDate"];
-                if (isset($_GET["id"])){// if reverse.php?id=...
-                    $error = $reservations->updateReservation($_SESSION["user_id"], $program, $time);
-                    header("Location: admin_reservations.php");
-                } 
-                else {
-                    $error = $reservations->insertReservation($_SESSION["user_id"], $program, $time);
-                }
+        // Make reservation (if submit from form)
+        if (isset($_POST["res-button"])) {
+            $program = $_POST["SelectProgram"];
+            $time = $_POST["ChosenDate"];
+            if (isset($_GET["id"])) {// if reverse.php?id=...
+                $error = $reservations->updateReservation($_SESSION["user_id"], $program, $time);
+                header("Location: admin_reservations.php");
+            } else {
+                $error = $reservations->insertReservation($_SESSION["user_id"], $program, $time);
             }
+        }
         ?>
         <div class="container4"><!--Container for the form.-->
             <form id="form-res" action="" method="POST"><!--The form itself.-->

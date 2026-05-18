@@ -13,77 +13,76 @@
         <?php include "users.php"?>
         <?php
             $user_name = "";
-            $user_date = "";
-            $user_email = "";
-            $user_phone = "";
-            $account_create_button_text = "Create Account";
+        $user_date = "";
+        $user_email = "";
+        $user_phone = "";
+        $account_create_button_text = "Create Account";
 
-            // If we are editing an account
-            if (isset($_GET["id"])){ // if reverse.php?id=...
-                if((!isset($_SESSION["is_admin"])) || ($_SESSION["is_admin"] === 0)){
-                    // If we try to edit a user that isn't us, kick us out
-                    if (((int)$_GET["id"]) != ($_SESSION["user_id"])){
-                        header("Location: index.php");
-                        exit;
-                    }
+        // If we are editing an account
+        if (isset($_GET["id"])) { // if reverse.php?id=...
+            if ((!isset($_SESSION["is_admin"])) || ($_SESSION["is_admin"] === 0)) {
+                // If we try to edit a user that isn't us, kick us out
+                if (((int)$_GET["id"]) != ($_SESSION["user_id"])) {
+                    header("Location: index.php");
+                    exit;
                 }
-                $account_create_button_text = "Update Account";
-                $users = new Users();
-                $user_info = $users->getUserById((int)$_GET["id"]);
-                $user_name = $user_info["name"];
-                $user_date = $user_info["date_of_birth"];
-                $user_email = $user_info["email"];
-                $user_phone = $user_info["telephone"];
             }
-            else if(isset($_SESSION["user_id"])){
-                header("Location: index.php");
-            }
-        ?>
-        <?php 
-            if (isset($_POST["res-button"])) {
-            $name = $_POST["InputName"];
-            $date = $_POST["InputDate"];
-            $email = $_POST["InputEmail"];
-            $phone = $_POST["InputTelephoneNumber"];
-            $password = $_POST["InputPassword"];
-            $password = md5($password);
-
+            $account_create_button_text = "Update Account";
             $users = new Users();
-            $previous_user = $users->getUser($email);
-            
-            // If we are editing a user (have "id" in url parameters)
-            if (isset($_GET["id"])){
-                $my_user_error = $users->updateUser($name, $date, $phone, $email, $password);
-                if ($my_user_error == null) {
-                    echo "Account updated.";
-                    if((!isset($_SESSION["is_admin"])) || ($_SESSION["is_admin"] === 1)) {
-                        header("Location: admin_users.php");
-                    } else {
-                        header("Location: profile.php");
-                    }
-                } else {
-                    echo $my_user_error;
-                }
-            // Ked je error, ziadny pouzivatel neexistuje
-            } else if ($previous_user != "Error: user doesn't exist"){
-                echo $previous_user;
-                echo "Error - user already exists!";
-                exit;
-            } else { // If we are creating a new user
-                // Existuje pouzivatel?
-                if(!isset($previous_user["name"])){
-                    $my_user_error = $users->insertUser($name, $date, $phone, $email, $password);
+            $user_info = $users->getUserById((int)$_GET["id"]);
+            $user_name = $user_info["name"];
+            $user_date = $user_info["date_of_birth"];
+            $user_email = $user_info["email"];
+            $user_phone = $user_info["telephone"];
+        } elseif (isset($_SESSION["user_id"])) {
+            header("Location: index.php");
+        }
+        ?>
+        <?php
+            if (isset($_POST["res-button"])) {
+                $name = $_POST["InputName"];
+                $date = $_POST["InputDate"];
+                $email = $_POST["InputEmail"];
+                $phone = $_POST["InputTelephoneNumber"];
+                $password = $_POST["InputPassword"];
+                $password = md5($password);
+
+                $users = new Users();
+                $previous_user = $users->getUser($email);
+
+                // If we are editing a user (have "id" in url parameters)
+                if (isset($_GET["id"])) {
+                    $my_user_error = $users->updateUser($name, $date, $phone, $email, $password);
                     if ($my_user_error == null) {
-                        echo "Account created.";
-                        header("Location: account_login.php");
+                        echo "Account updated.";
+                        if ((!isset($_SESSION["is_admin"])) || ($_SESSION["is_admin"] === 1)) {
+                            header("Location: admin_users.php");
+                        } else {
+                            header("Location: profile.php");
+                        }
                     } else {
                         echo $my_user_error;
                     }
-                } else {
-                    echo "Email already exists.";
+                    // Ked je error, ziadny pouzivatel neexistuje
+                } elseif ($previous_user != "Error: user doesn't exist") {
+                    echo $previous_user;
+                    echo "Error - user already exists!";
+                    exit;
+                } else { // If we are creating a new user
+                    // Existuje pouzivatel?
+                    if (!isset($previous_user["name"])) {
+                        $my_user_error = $users->insertUser($name, $date, $phone, $email, $password);
+                        if ($my_user_error == null) {
+                            echo "Account created.";
+                            header("Location: account_login.php");
+                        } else {
+                            echo $my_user_error;
+                        }
+                    } else {
+                        echo "Email already exists.";
+                    }
                 }
             }
-        }
         ?>
         <div class="container5"><!--Container for the form.-->
             <form id="form-res" action="" method="POST"><!--The form itself.-->

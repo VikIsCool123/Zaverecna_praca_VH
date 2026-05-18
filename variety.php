@@ -12,7 +12,7 @@
         <?php include "parts/header.php"?>
         <div class="container-cards"><!--Container for the cards.-->
             <?php include "parts/services.php"?>
-            <?php for($i=0;$i < count($titles);$i++){?>
+            <?php for ($i = 0;$i < count($titles);$i++) {?>
             <div class="card mb-3">
                 <div class="row g-0">
                     <div class="col-md-8">

@@ -1,15 +1,18 @@
 <?php
+
 require_once('db/config.php');
 
-class Database {
-    
+class Database
+{
     private $conn;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->connect();
     }
 
-    protected function connect() {
+    protected function connect()
+    {
         $config = DATABASE;
         $options = array(
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
@@ -29,8 +32,8 @@ class Database {
     }
 
     // Getter na získanie pripojenia
-    public function getConnection() {
+    public function getConnection()
+    {
         return $this->conn;
     }
 }
-?>

@@ -10,7 +10,7 @@
     <body class="body-reservation" background="images/adminPanel2.png"><!--The body of the webpage that has an image as the bacground.-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
         <?php include "parts/header.php"?>
-        <?php if((!isset($_SESSION["is_admin"])) || ($_SESSION["is_admin"] === 0)){
+        <?php if((!isset($_SESSION["is_admin"])) || ($_SESSION["is_admin"] === 0)) {
             header("Location: index.php");
             exit;
         }?>
@@ -19,15 +19,15 @@
                 <div class="container-admin-box"><!--The banner with the welcome text.-->
                     <?php
                         include "reservations.php";
-                        $reservations = new Reservations();
-                        $all_reservations = $reservations -> getAllReservations();
+        $reservations = new Reservations();
+        $all_reservations = $reservations -> getAllReservations();
 
-                        if (isset($_POST["res-button"])) {
-                            $reservation_id= $_POST["ReservationId"];
-                            $reservations -> cancelReservation($reservation_id);
-                            header("Location: admin_reservations.php");
-                        }
-                    ?>
+        if (isset($_POST["res-button"])) {
+            $reservation_id = $_POST["ReservationId"];
+            $reservations -> cancelReservation($reservation_id);
+            header("Location: admin_reservations.php");
+        }
+        ?>
                     <table class="admin-table">
                         <tr>
                             <th>User ID</th>

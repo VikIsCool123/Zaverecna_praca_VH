@@ -43,18 +43,18 @@
 
 <?php
     include "reservations.php";
-    $reservations = new Reservations();
-    $my_reservations = $reservations->getUserReservations($_SESSION["user_id"]);
+$reservations = new Reservations();
+$my_reservations = $reservations->getUserReservations($_SESSION["user_id"]);
 ?>
 
 <div class="container-reservations-table">
     <?php foreach ($my_reservations as $reservation): ?>
         <div class="reservation-item">
-            <?php 
-                $date_time = new DateTime($reservation["time"]); 
-                echo "📅 " . $date_time->format("j F Y");
-                echo " - " . $reservation["name"];
-            ?>
+            <?php
+                $date_time = new DateTime($reservation["time"]);
+        echo "📅 " . $date_time->format("j F Y");
+        echo " - " . $reservation["name"];
+        ?>
         </div>
     <?php endforeach; ?>
 </div>
