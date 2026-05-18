@@ -56,7 +56,11 @@
                 $my_user_error = $users->updateUser($name, $date, $phone, $email, $password);
                 if ($my_user_error == null) {
                     echo "Account updated.";
-                    header("Location: profile.php");
+                    if((!isset($_SESSION["is_admin"])) || ($_SESSION["is_admin"] === 1)) {
+                        header("Location: admin_users.php");
+                    } else {
+                        header("Location: profile.php");
+                    }
                 } else {
                     echo $my_user_error;
                 }
@@ -95,7 +99,7 @@
                 </div>
                 <div class="mb-3"><!--Input for the Email address.-->
                     <label for="exampleInputEmail1" class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" name="InputEmail" aria-describedby="emailHelp" value=<?php echo $user_email ?>>
+                    <input <?php echo (isset($_GET["id"]) ? "disabled" : "") ?> type="email" class="form-control" id="exampleInputEmail1" name="InputEmail" aria-describedby="emailHelp" value=<?php echo $user_email ?>>
                     <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                 </div>
                 <div class="mb-3"><!--Input for the Telephone number.-->
