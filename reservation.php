@@ -11,13 +11,17 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
         <?php include "parts/header.php"?>
         <?php include "reservations.php"?>
+        <?php include "programs.php"?>
         <?php if(!isset($_SESSION["user_id"])) {
             header("Location: index.php");
         }?>
         <?php
-            $reservations = new Reservations();
-        $reservation_program_id = 1;
-        $reservation_datetime = 0;
+        $programs = new Programs();
+        $all_programs = $programs -> getAllPrograms();
+
+        $reservations = new Reservations();
+        $reservation_program_id = 1; // default program (if making new reservation)
+        $reservation_datetime = 0; // default datetime (if making new reservation)
 
         // Get current reservation if in URL (for editing)
         if (isset($_GET["id"])) { // if reverse.php?id=...
@@ -49,12 +53,17 @@
                     <label>Choose from these programs</label>
                     <select class="form-select form-select-sm" 
                         aria-label="Small select example" name="SelectProgram">
-                        <option value="1" <?php echo (($reservation_program_id == 1) ? "selected" : "") ?>>Yoga</option>
-                        <option value="2" <?php echo (($reservation_program_id == 2) ? "selected" : "") ?>>Spa</option>
-                        <option value="3" <?php echo (($reservation_program_id == 3) ? "selected" : "") ?>>Massage</option>
-                        <option value="4" <?php echo (($reservation_program_id == 4) ? "selected" : "") ?>>Sauna</option>
-                        <option value="5" <?php echo (($reservation_program_id == 5) ? "selected" : "") ?>>Natural stone relaxation</option>
-                        <option value="6" <?php echo (($reservation_program_id == 6) ? "selected" : "") ?>>Meditation</option>
+                        <?php foreach ($all_programs as $program): ?>
+                            <option 
+                                value="<?php echo $program["id"]?>" 
+                                <?php echo (($reservation_program_id == $program["id"]) ? "selected" : "") ?>
+                            >
+                                    <?php echo $program["name"] ?> 
+                                    -
+                                    <?php echo $program["price_per_session"] ?>
+                                    €
+                            </option>
+                        <?php endforeach; ?>
                     </select>
                 </div>
                 <div class="date-picker-container"><!--Form selection.-->
