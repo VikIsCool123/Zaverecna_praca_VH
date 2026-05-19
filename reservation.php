@@ -50,7 +50,7 @@
             $time = $_POST["ChosenDate"];
 
             if (isset($_GET["id"])) {// if http://.../reserve.php?id=...
-                $error = $reservations->updateReservation($_SESSION["user_id"], $program, $time);
+                $error = $reservations->updateReservation($_GET["id"], $program, $time);
                 header("Location: admin_reservations.php");
             } else {
                 $error = $reservations->insertReservation($_SESSION["user_id"], $program, $time);
