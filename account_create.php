@@ -57,19 +57,23 @@
                 // Get all values from the form fields
                 $name = $_POST["InputName"];
                 $date = $_POST["InputDate"];
-                $email = $_POST["InputEmail"];
                 $phone = $_POST["InputTelephoneNumber"];
                 $password = $_POST["InputPassword"];
                 // Hash the password for security using the MD5 algorithm
                 $password = md5($password);
 
                 $users = new Users();
-                $existence = $users -> existsUser($email);
 
                 // If we are editing a user (have "id" in url parameters)...
                 if (isset($_GET["id"])) {
+                    $existence_for_editing = $users -> existsUserById($_GET["id"]);
+                    if ($existence_for_editing != true) {
+                        echo "Trying to edit a user that doesn't exist or error.";
+                        exit;
+                    }
+
                     // ... then UPDATE instead of CREATE / INSERT
-                    $my_user_error = $users->updateUser($_GET["id"], $name, $date, $phone, $email, $password);
+                    $my_user_error = $users->updateUser($_GET["id"], $name, $date, $phone, $password);
 
                     // If there wasn't an error when updating the account...
                     if ($my_user_error == null) {
@@ -84,8 +88,15 @@
                     } else {
                         echo $my_user_error;
                     }
+                    exit;
+                }
 
-                } elseif ($existence == true) { // If we are not editing (this means we are creating), and user already exists
+                // Can only get the email if we are not in edit mode because it's disabled in edit mode
+                $email = $_POST["InputEmail"];
+                $existence_for_editing = $users -> existsUserByEmail($email);
+
+                // If we are not editing (this means we are creating), and user already exists
+                if ($existence_for_editing == true) {
                     echo "Error - user already exists!";
                     exit;
 

@@ -49,9 +49,32 @@ class Users extends Database
         }
     }
 
-    // Check whether the user exists and return true / false based on that.
+    // Check whether the user exists by id and return true / false based on that.
     // Or return an error if there was an error.
-    public function existsUser($email)
+    public function existsUserById($id)
+    {
+        $sql = "SELECT * FROM users  WHERE id=(:id)";
+        try {
+            $statement = $this->connection->prepare($sql);
+            $get = $statement->execute(array(
+                ':id' => $id
+            ));
+            $user = $statement->fetch(PDO::FETCH_ASSOC);
+            if (!$user) {
+                http_response_code(200);
+                return false;
+            }
+            http_response_code(200);
+            return true;
+        } catch (\Exception $exception) {
+            http_response_code(500);
+            return "Error:" . $exception->getMessage();
+        }
+    }
+
+    // Check whether the user exists by email and return true / false based on that.
+    // Or return an error if there was an error.
+    public function existsUserByEmail($email)
     {
         $sql = "SELECT * FROM users  WHERE email=(:email)";
         try {
@@ -125,7 +148,7 @@ class Users extends Database
     }
 
     // Update the user
-    public function updateUser($id, $name, $date, $telephone, $email, $password)
+    public function updateUser($id, $name, $date, $telephone, $password)
     {
         // Cannot create a user born in the future
         // input date > current date, then error
