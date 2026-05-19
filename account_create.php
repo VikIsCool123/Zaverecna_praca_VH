@@ -12,7 +12,9 @@
         <?php include "parts/header.php"?>
         <?php include "users.php"?>
         <?php
-            $user_name = "";
+        // Variables that store values for the input fields.
+        // Here we set them to default values which will be used on creating new accounts.
+        $user_name = "";
         $user_date = "";
         $user_email = "";
         $user_phone = "";
@@ -20,44 +22,63 @@
 
         // If we are editing an account
         if (isset($_GET["id"])) { // if reverse.php?id=...
+
+            // If the user isn't an admin...
             if ((!isset($_SESSION["is_admin"])) || ($_SESSION["is_admin"] === 0)) {
-                // If we try to edit a user that isn't us, kick us out
+                // ...AND if we try to edit a user that isn't us, kick us out
                 if (((int)$_GET["id"]) != ($_SESSION["user_id"])) {
                     header("Location: index.php");
                     exit;
                 }
             }
-            $account_create_button_text = "Update Account";
+
+            // If we are here, we passed the security checks for editing a user
+            // So, get the user the information about the user we are trying to edit
             $users = new Users();
             $user_info = $users->getUserById((int)$_GET["id"]);
+            // Then, fill the inputs with the previous user data
             $user_name = $user_info["name"];
             $user_date = $user_info["date_of_birth"];
             $user_email = $user_info["email"];
             $user_phone = $user_info["telephone"];
+
+            // Update submit button text
+            $account_create_button_text = "Update Account";
+
+            // Else (if we are not editing) and the user IS logged-in, kick them out.
+            // Basically, don't allow logging in twice.
         } elseif (isset($_SESSION["user_id"])) {
             header("Location: index.php");
         }
         ?>
         <?php
+            // When the user submits the form
             if (isset($_POST["res-button"])) {
+                // Get all values from the form fields
                 $name = $_POST["InputName"];
                 $date = $_POST["InputDate"];
                 $email = $_POST["InputEmail"];
                 $phone = $_POST["InputTelephoneNumber"];
                 $password = $_POST["InputPassword"];
+                // Hash the password for security using the MD5 algorithm
                 $password = md5($password);
 
                 $users = new Users();
                 $existence = $users -> existsUser($email);
 
-                // If we are editing a user (have "id" in url parameters)
+                // If we are editing a user (have "id" in url parameters)...
                 if (isset($_GET["id"])) {
+                    // ... then UPDATE instead of CREATE / INSERT
                     $my_user_error = $users->updateUser($_GET["id"], $name, $date, $phone, $email, $password);
+
+                    // If there wasn't an error when updating the account...
                     if ($my_user_error == null) {
                         echo "Account updated.";
+                        // ...and the user is an admin, return back to the admin panel
                         if ((!isset($_SESSION["is_admin"])) || ($_SESSION["is_admin"] === 1)) {
                             header("Location: admin_users.php");
                         } else {
+                            // Otherwise, go back to the profile
                             header("Location: profile.php");
                         }
                     } else {
@@ -70,6 +91,8 @@
 
                 } else { // If we are creating a new user
                     $my_user_error = $users->insertUser($name, $date, $phone, $email, $password);
+
+                    // If no error, go to the log-in page
                     if ($my_user_error == null) {
                         echo "Account created.";
                         header("Location: account_login.php");
@@ -93,6 +116,7 @@
                 </div>
                 <div class="mb-3"><!--Input for the Email address.-->
                     <label for="exampleInputEmail1" class="form-label">Email address</label>
+                    <!-- If we are in edit mode, don't allow changing the email -->
                     <input <?php echo (isset($_GET["id"]) ? "disabled" : "") ?> type="email" class="form-control" id="exampleInputEmail1" name="InputEmail" aria-describedby="emailHelp" value=<?php echo $user_email ?>>
                     <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                 </div>
@@ -120,6 +144,7 @@
             </form>
         </div>
         <?php include "parts/footer.php"?>
+        <!-- Javascript to ensure we need to select the checkbox before submitting -->
         <script src="javascript/reservation.js"></script>
     </body>
 </html>

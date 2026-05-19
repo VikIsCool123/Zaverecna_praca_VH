@@ -3,16 +3,21 @@
 error_reporting(E_ALL); //zapnutie chybových hlásení
 ini_set("display_errors", "On");
 require_once('database.php');
+
+// Extend the teacher's Database class to handle Users
 class Users extends Database
 {
+    // Store the connection info
     protected $connection;
 
+    // Constructor to create the object
     public function __construct()
     {
         $this->connect();
         $this->connection = $this->getConnection();
     }
 
+    // Get all users
     public function getAllUsers()
     {
         $sql = "SELECT * FROM users";
@@ -27,6 +32,7 @@ class Users extends Database
         }
     }
 
+    // Get user by ID
     public function getUserById($id)
     {
         $sql = "SELECT * FROM users  WHERE id=(:id)";
@@ -43,6 +49,8 @@ class Users extends Database
         }
     }
 
+    // Check whether the user exists and return true / false based on that.
+    // Or return an error if there was an error.
     public function existsUser($email)
     {
         $sql = "SELECT * FROM users  WHERE email=(:email)";
@@ -64,6 +72,7 @@ class Users extends Database
         }
     }
 
+    // Get all user info based on the provided email
     public function getUser($email)
     {
         $sql = "SELECT * FROM users  WHERE email=(:email)";
@@ -85,6 +94,7 @@ class Users extends Database
         }
     }
 
+    // Create a new user
     public function insertUser($name, $date, $telephone, $email, $password)
     {
         // Is chosen date > current date
@@ -114,6 +124,7 @@ class Users extends Database
         }
     }
 
+    // Update the user
     public function updateUser($id, $name, $date, $telephone, $email, $password)
     {
         // Cannot create a user born in the future
@@ -143,9 +154,9 @@ class Users extends Database
         }
     }
 
+    // Delete the user
     public function deleteUser($id)
     {
-
         $sql = "DELETE FROM users
                   WHERE id = :id";
         try {

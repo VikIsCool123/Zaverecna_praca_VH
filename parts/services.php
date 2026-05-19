@@ -1,5 +1,7 @@
 <?php
 
+// Holds information about all services to be shown on the variety page
+
 $titles = array("Yoga", "Sauna", "Massage", "Spa", "Relaxation", "Meditation");
 $text = array(
     "A transformative practice that harmonizes body, mind, and breath through a series of intentional movements and postures. Yoga improves flexibility, strength, and posture while calming the nervous system and reducing stress. Whether gentle or dynamic, each session encourages mindfulness, balance, and a deeper connection with yourself, leaving you feeling centered, energized, and restored.",

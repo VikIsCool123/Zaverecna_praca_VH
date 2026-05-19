@@ -12,6 +12,8 @@
         <?php include "parts/header.php"?>
         <div class="container-cards"><!--Container for the cards.-->
             <?php include "parts/services.php"?>
+
+            <!-- Create the list of services dynamically from an array --->
             <?php for ($i = 0;$i < count($titles);$i++) {?>
             <div class="card mb-3">
                 <div class="row g-0">

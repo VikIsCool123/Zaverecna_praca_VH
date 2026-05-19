@@ -1,5 +1,5 @@
 <?php
-/*  Date formats:
+/*  How to call "->format" to format the date nicely:
     https://www.w3schools.com/php/func_date_date_format.asp
         d - The day of the month (from 01 to 31)
         D - A textual representation of a day (three letters)
@@ -44,15 +44,17 @@
 <?php
     include "reservations.php";
 $reservations = new Reservations();
+// Get all the user's reservations
 $my_reservations = $reservations->getUserReservations($_SESSION["user_id"]);
 ?>
 
 <div class="container-reservations-table">
+    <!-- For each user's reservation, add it to the table -->
     <?php foreach ($my_reservations as $reservation): ?>
         <div class="reservation-item">
             <?php
                 $date_time = new DateTime($reservation["time"]);
-        echo "📅 " . $date_time->format("j F Y");
+        echo "📅 " . $date_time->format("j F Y"); // for example 1 January 2026
         echo " - " . $reservation["name"]; // program name
         echo " - " . $reservation["price_per_session"]; // program price
         echo " €";

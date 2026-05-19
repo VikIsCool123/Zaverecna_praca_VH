@@ -10,6 +10,7 @@
     <body class="body-reservation" background="images/adminPanel2.png"><!--The body of the webpage that has an image as the bacground.-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
         <?php include "parts/header.php"?>
+        <!-- If not logged in OR is not admin, kick them out -->
         <?php if((!isset($_SESSION["is_admin"])) || ($_SESSION["is_admin"] === 0)) {
             header("Location: index.php");
             exit;
@@ -19,12 +20,17 @@
                 <div class="container-admin-box"><!--The banner with the welcome text.-->
                     <?php
                         include "reservations.php";
+        // I don't know why the linter is moving this to the left, sorry lol xd ඞඞඞඞඞඞ
+        // Get data about all reservations
         $reservations = new Reservations();
         $all_reservations = $reservations -> getAllReservations();
 
+        // If we are clicking the cancel button
         if (isset($_POST["res-button"])) {
+            // ... then, get which reservation and cancel it
             $reservation_id = $_POST["ReservationId"];
             $reservations -> cancelReservation($reservation_id);
+            // Refresh the page
             header("Location: admin_reservations.php");
         }
         ?>
@@ -35,14 +41,18 @@
                             <th>Date</th>
                             <th>Actions</th>
                         </tr>
+                        <!-- Go through every reservation -->
                         <?php foreach ($all_reservations as $reservation): ?>
                             <tr>
                                 <td><?php echo $reservation["user_id"] ?></td>
                                 <td><?php echo $reservation["name"] ?></td>
                                 <td><?php echo $reservation["time"] ?></td>
+                                <!-- Allow going to the reservation page to edit a specified reservation -->
                                 <td><a href="reservation.php?id=<?php echo $reservation['reservationId']?>" class="btn btn-primary">🪿 Edit</a></td>
+                                <!-- Mini-form to submit WHICH reservation to cancel -->
                                 <td>
-                                    <form id="form-res" action="" method="POST"><!--The form itself.-->
+                                    <form id="form-res" action="" method="POST">
+                                        <!-- Hidden input for holding the reservation ID to cancel -->
                                         <input type="hidden" name="ReservationId" value="<?php echo $reservation['reservationId']; ?>">
                                         <button class="btn btn-primary" id="res-button" name="res-button" type="submit">🥔 Cancel</button>
                                     </form>

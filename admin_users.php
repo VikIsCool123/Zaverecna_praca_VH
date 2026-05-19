@@ -10,6 +10,7 @@
     <body class="body-reservation" background="images/adminPanel1.png"><!--The body of the webpage that has an image as the bacground.-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
         <?php include "parts/header.php"?>
+        <!-- If not logged in OR is not admin, kick them out -->
         <?php if((!isset($_SESSION["is_admin"])) || ($_SESSION["is_admin"] === 0)) {
             header("Location: index.php");
             exit;
@@ -19,12 +20,18 @@
                 <div class="container-admin-box"><!--The banner with the welcome text.-->
                     <?php
                         include "users.php";
+
+        // I don't know why the linter is moving this to the left, sorry lol xd ඞඞඞඞඞඞ
+        // Get data about all users
         $users = new Users();
         $all_users = $users -> getAllUsers();
 
+        // If mini-form is submitted to delete a user
         if (isset($_POST["res-button"])) {
+            // ... then delete the user
             $id = $_POST["userId"];
             $users -> deleteUser($id);
+            // Refresh the page
             header("Location: admin_users.php");
         }
         ?>
@@ -36,13 +43,17 @@
                             <th>Telephone</th>
                             <th>Actions</th>
                         </tr>
+                        <!-- Go through all of the users -->
                         <?php foreach ($all_users as $user): ?>
                             <tr>
+                                <!-- Show information about this user -->
                                 <td><?php echo $user["name"] ?></td>
                                 <td><?php echo $user["date_of_birth"] ?></td>
                                 <td><?php echo $user["email"] ?></td>
                                 <td><?php echo $user["telephone"] ?></td>
+                                <!-- Allow editing this user in the row by going to the account create page -->
                                 <td><a href="account_create.php?id=<?php echo $user['id']?>" class="btn btn-primary">🦫 Edit</a></td>
+                                <!-- Mini-form to allow submitting the user ID to delete in the IF condition above -->
                                 <td>
                                     <form id="form-res" action="" method="POST"><!--The form itself.-->
                                         <input type="hidden" name="userId" value="<?php echo $user['id']; ?>">
